@@ -45,7 +45,6 @@ class RandomUser(object):
         self.data = results['results'][0]
         self.info = results['info']
 
-    # TODO: implement getter methods for the rest of the returned values
 
     # Personal Info
     # --------------------------------
@@ -87,9 +86,12 @@ class RandomUser(object):
         """
         dob = self.data['dob']
         if parse_time:
-            date_format = '%Y-%m-%d %H:%M:%S'
-            dob = time.strptime(dob, date_format)
+            dob = self._parse_time(dob)
         return dob
+
+    def get_nat(self):
+        """Returns nationality"""
+        return self.data['nat']
 
     # Location
     # --------------------------------
@@ -160,16 +162,66 @@ class RandomUser(object):
         """Returns password"""
         return self.data['login']['password']
 
+    # TODO: add methods for salt, md5, sha1, and sha256
+
+    def get_registered(self, parse_time=False):
+        """Returns registration date as a string in the format '%Y-%m-%d %H:%M:%S'
+
+        :param parse_time: (Default = False) If True, parse date string using time.strptime() and return the results instead of a string
+        """
+        registered = self.data['registered']
+        if parse_time:
+            registered = self._parse_time(registered)
+        return registered
+
+    # ID
+    # --------------------------------
+
+    def get_id_type(self):
+        """Returns the ID type"""
+        return self.data['id']['name']
+
+    def get_id_number(self):
+        """Returns the ID number"""
+        return self.data['id']['value']
+
+    def get_id(self):
+        """Returns a dictionary mapping 'type' to ID type and 'number' to ID number
+        """
+        return {'type': self.get_id_type(), 'number': self.get_id_(number)}
+
     # Misc
     # --------------------------------
 
-    def get_picture(self):
-        """Returns url to a .jpg of the generated user"""
-        return self.data['picture']['large']
+    # TODO: use actual constants (and move this declaration?)
+    # Constants for possible picture sizes
+    PICTURE_SIZE_LARGE = 'large'
+    PICTURE_SIZE_MEDIUM = 'medium'
+    PICTURE_SIZE_THUMBNAIL = 'thumbnail'
+
+    def get_picture(self, size=PICTURE_SIZE_LARGE):
+        """Returns url to a .jpg of the generated user
+
+        :param size: (Default = PICTURE_SIZE_LARGE) The size of picture to return the url for. Possible values for this are stored in constants PICTURE_SIZE_LARGE, PICTURE_SIZE_MEDIUM, and PICTURE_SIZE_THUMBNAIL
+        """
+        return self.data['picture'][size]
 
     def get_info(self):
         """Returns a dictionary with information about the API query"""
         return self.info
+
+
+    # Helper Functions
+    # --------------------------------
+
+    def _parse_time(self, date_string):
+        """Parses the date string format returned by the API and returns the time tuple result of time.strptime()
+
+        :param date_string: The date string in the format '%Y-%m-%d %H:%M:%S'
+        """
+        date_format = '%Y-%m-%d %H:%M:%S'
+        return time.strptime(date_string, date_format)
+
 
     # Static Methods
     # --------------------------------
