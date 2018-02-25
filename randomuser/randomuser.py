@@ -19,16 +19,20 @@ URL = 'https://randomuser.me/api/'
 class RandomUser(object):
     # Dictionary where the random user data will be stored
     data = {}
+    # Dictionary where info section of results will be stored
+    info = {}
 
-    def __init__(self, get_params=None, user_data=None):
+    def __init__(self, get_params=None, user_data=None, api_info=None):
         """Initialize RandomUser object
 
         :param get_params: (Optional) Dictionary mapping query parameter names to their values. See https://randomuser.me/documentation for details on parameters.
-        :param user_data: (Optional) If specified, this data will be used instead of querying the API for user data. Can be useful when generating multiple users with a single query using the results parameter.
+        :param user_data: (Optional) If specified, this data will be used instead of querying the API for user data. Use in instances where the user data has already been generated (e.g. restoring user data, creating multiple users with single call to API using the 'results' parameter)
+        :param api_info" (Optional) If the user is being generated with the user_data parameter, the info variable will be set to this. Otherwise, it will be ignored when generating a random user.
         """
         global URL
         if user_data is not None:
             self.data = user_data
+            self.info = api_info
         else:
             self.request_url = URL
             if get_params:
@@ -39,8 +43,9 @@ class RandomUser(object):
         # TODO: catch timeout exception and fall back to local data?
         results = json.loads(request.urlopen(self.request_url).read())
         self.data = results['results'][0]
-        self.data['info'] = results['info']
+        self.info = results['info']
 
+    # TODO: implement getter methods for the rest of the returned values
 
     # Personal Info
     # --------------------------------
@@ -164,7 +169,7 @@ class RandomUser(object):
 
     def get_info(self):
         """Returns a dictionary with information about the API query"""
-        return self.data['info']
+        return self.info
 
     # Static Methods
     # --------------------------------
@@ -189,8 +194,7 @@ class RandomUser(object):
         info = results['info']
         users = []
         for user_data in results['results']:
-            user_data['info'] = info
-            user = RandomUser(user_data=user_data)
+            user = RandomUser(user_data=user_data, api_info=info)
             users.append(user)
         return users
 
