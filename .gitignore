@@ -1,0 +1,6 @@
+# Python cache files and setuptools output
+__pycache__
+/dist/
+/*.egg-info
+
+.DS_Store
