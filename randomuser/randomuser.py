@@ -162,8 +162,6 @@ class RandomUser(object):
         """Returns password"""
         return self.data['login']['password']
 
-    # TODO: add methods for salt, md5, sha1, and sha256
-
     def get_registered(self, parse_time=False):
         """Returns registration date as a string in the format '%Y-%m-%d %H:%M:%S'
 
@@ -173,6 +171,22 @@ class RandomUser(object):
         if parse_time:
             registered = self._parse_time(registered)
         return registered
+
+    def get_login_salt(self):
+        """Returns user login salt"""
+        return self.data['login']['salt']
+
+    def get_login_md5(self):
+        """Returns user login md5"""
+        return self.data['login']['md5']
+
+    def get_login_sha1(self):
+        """Returns user login sha1"""
+        return self.data['login']['sha1']
+
+    def get_login_sha256(self):
+        """Returns user login sha256"""
+        return self.data['login']['sha256']
 
     # ID
     # --------------------------------
@@ -193,7 +207,6 @@ class RandomUser(object):
     # Misc
     # --------------------------------
 
-    # TODO: use actual constants (and move this declaration?)
     # Constants for possible picture sizes
     PICTURE_SIZE_LARGE = 'large'
     PICTURE_SIZE_MEDIUM = 'medium'
