@@ -219,8 +219,17 @@ class RandomUser(object):
         """
         return self.data['picture'][size]
 
+    # Constants for info dictionary keys
+    INFO_SEED = 'seed'
+    INFO_RESULTS = 'results'
+    INFO_PAGE = 'page'
+    INFO_VERSION = 'version'
+
     def get_info(self):
-        """Returns a dictionary with information about the API query"""
+        """Returns a dictionary with information about the API query
+
+        Keys for the info dictionary are stored in constants INFO_SEED, INFO_RESULTS, INFO_PAGE, and INFO_VERSION
+        """
         return self.info
 
 
