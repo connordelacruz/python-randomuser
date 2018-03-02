@@ -1,5 +1,5 @@
 # Python Random User Generator
 
-## TODO
+Python class for generating random user data using https://randomuser.me API 
 
-* Documentation
+
