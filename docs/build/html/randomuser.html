@@ -1,0 +1,407 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>randomuser package &#8212; Python Random User Generator  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Python Random User Generator" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="randomuser-package">
+<h1>randomuser package<a class="headerlink" href="#randomuser-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-randomuser.randomuser">
+<span id="randomuser-randomuser-module"></span><h2>randomuser.randomuser module<a class="headerlink" href="#module-randomuser.randomuser" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="randomuser.randomuser.RandomUser">
+<em class="property">class </em><code class="descclassname">randomuser.randomuser.</code><code class="descname">RandomUser</code><span class="sig-paren">(</span><em>get_params=None</em>, <em>user_data=None</em>, <em>api_info=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="randomuser.randomuser.RandomUser.INFO_PAGE">
+<code class="descname">INFO_PAGE</code><em class="property"> = 'page'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.INFO_PAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="randomuser.randomuser.RandomUser.INFO_RESULTS">
+<code class="descname">INFO_RESULTS</code><em class="property"> = 'results'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.INFO_RESULTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="randomuser.randomuser.RandomUser.INFO_SEED">
+<code class="descname">INFO_SEED</code><em class="property"> = 'seed'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.INFO_SEED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="randomuser.randomuser.RandomUser.INFO_VERSION">
+<code class="descname">INFO_VERSION</code><em class="property"> = 'version'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.INFO_VERSION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="randomuser.randomuser.RandomUser.PICTURE_SIZE_LARGE">
+<code class="descname">PICTURE_SIZE_LARGE</code><em class="property"> = 'large'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.PICTURE_SIZE_LARGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="randomuser.randomuser.RandomUser.PICTURE_SIZE_MEDIUM">
+<code class="descname">PICTURE_SIZE_MEDIUM</code><em class="property"> = 'medium'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.PICTURE_SIZE_MEDIUM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="randomuser.randomuser.RandomUser.PICTURE_SIZE_THUMBNAIL">
+<code class="descname">PICTURE_SIZE_THUMBNAIL</code><em class="property"> = 'thumbnail'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.PICTURE_SIZE_THUMBNAIL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="randomuser.randomuser.RandomUser.data">
+<code class="descname">data</code><em class="property"> = {}</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="randomuser.randomuser.RandomUser.generate_users">
+<em class="property">static </em><code class="descname">generate_users</code><span class="sig-paren">(</span><em>get_params=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.generate_users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.generate_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list containing the specified amount of randomly generated users.</p>
+<p>The Random User Generator API can generate multiple users in a single query
+instead of connecting once for each user and increasing load on both ends.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>amount</strong> – The number of users to generate.</li>
+<li><strong>get_params</strong> – (Optional) Dictionary mapping query parameter names to their values. See <a class="reference external" href="https://randomuser.me/documentation">https://randomuser.me/documentation</a> for details on parameters.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_cell">
+<code class="descname">get_cell</code><span class="sig-paren">(</span><em>strip_parentheses=False</em>, <em>strip_hyphens=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_cell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns cell phone number as a string in the format ‘(###)-###-####’</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>strip_parentheses</strong> – (Default = False) Omit parentheses if True</li>
+<li><strong>strip_hyphens</strong> – (Default = False) Omit hyphens if True</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_city">
+<code class="descname">get_city</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_city"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_city" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns city</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_dob">
+<code class="descname">get_dob</code><span class="sig-paren">(</span><em>parse_time=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_dob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_dob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns date of birth as a string in the format ‘%Y-%m-%d %H:%M:%S’</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parse_time</strong> – (Default = False) If True, parse date of birth string using time.strptime() and return the results instead of a string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_email">
+<code class="descname">get_email</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_email"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns email address</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_first_name">
+<code class="descname">get_first_name</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_first_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_first_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns first name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capitalize</strong> – (Default = True) Capitalize first letter if True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_full_name">
+<code class="descname">get_full_name</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_full_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_full_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns first and last name separated by a space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capitalize</strong> – (Default = True) Capitalize first letter of each name if True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_gender">
+<code class="descname">get_gender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_gender"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_gender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns gender</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_id">
+<code class="descname">get_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary mapping ‘type’ to ID type and ‘number’ to ID number</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_id_number">
+<code class="descname">get_id_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_id_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_id_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the ID number</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_id_type">
+<code class="descname">get_id_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_id_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_id_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the ID type</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_info">
+<code class="descname">get_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary with information about the API query</p>
+<p>Keys for the info dictionary are stored in constants INFO_SEED, INFO_RESULTS, INFO_PAGE, and INFO_VERSION</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_last_name">
+<code class="descname">get_last_name</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_last_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_last_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns last name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capitalize</strong> – (Default = True) Capitalize first letter if True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_login_md5">
+<code class="descname">get_login_md5</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_login_md5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_login_md5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns user login md5</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_login_salt">
+<code class="descname">get_login_salt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_login_salt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_login_salt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns user login salt</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_login_sha1">
+<code class="descname">get_login_sha1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_login_sha1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_login_sha1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns user login sha1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_login_sha256">
+<code class="descname">get_login_sha256</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_login_sha256"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_login_sha256" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns user login sha256</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_nat">
+<code class="descname">get_nat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_nat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_nat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns nationality</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_password">
+<code class="descname">get_password</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns password</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_phone">
+<code class="descname">get_phone</code><span class="sig-paren">(</span><em>strip_parentheses=False</em>, <em>strip_hyphens=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_phone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_phone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns phone number as a string in the format ‘(###)-###-####’</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>strip_parentheses</strong> – (Default = False) Omit parentheses if True</li>
+<li><strong>strip_hyphens</strong> – (Default = False) Omit hyphens if True</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_picture">
+<code class="descname">get_picture</code><span class="sig-paren">(</span><em>size='large'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_picture"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_picture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns url to a .jpg of the generated user</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> – (Default = PICTURE_SIZE_LARGE) The size of picture to return the url for. Possible values for this are stored in constants PICTURE_SIZE_LARGE, PICTURE_SIZE_MEDIUM, and PICTURE_SIZE_THUMBNAIL</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_postcode">
+<code class="descname">get_postcode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_postcode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_postcode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns post code</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_registered">
+<code class="descname">get_registered</code><span class="sig-paren">(</span><em>parse_time=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_registered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_registered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns registration date as a string in the format ‘%Y-%m-%d %H:%M:%S’</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parse_time</strong> – (Default = False) If True, parse date string using time.strptime() and return the results instead of a string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_state">
+<code class="descname">get_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_street">
+<code class="descname">get_street</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_street"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_street" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns street address</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_username">
+<code class="descname">get_username</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_username"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns username</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.get_zipcode">
+<code class="descname">get_zipcode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_zipcode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_zipcode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns zip code (wrapper for get_postcode())</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="randomuser.randomuser.RandomUser.info">
+<code class="descname">info</code><em class="property"> = {}</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-randomuser">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-randomuser" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">randomuser package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-randomuser.randomuser">randomuser.randomuser module</a></li>
+<li><a class="reference internal" href="#module-randomuser">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Python Random User Generator</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/randomuser.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Connor de la Cruz.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/randomuser.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

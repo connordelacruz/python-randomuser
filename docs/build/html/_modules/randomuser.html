@@ -1,0 +1,494 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>randomuser &mdash; Python Random User Generator  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Python Random User Generator  documentation" href="../index.html"/>
+        <link rel="up" title="Module code" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python Random User Generator
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">randomuser</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python Random User Generator</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Module code</a> &raquo;</li>
+        
+      <li>randomuser</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for randomuser</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Class for generating random user information</span>
+
+<span class="c1"># Imports</span>
+<span class="c1"># ----------------------------------------------------------------</span>
+<span class="kn">from</span> <span class="nn">urllib</span> <span class="k">import</span> <span class="n">request</span><span class="p">,</span> <span class="n">error</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="k">import</span> <span class="n">urlencode</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Global Variables</span>
+<span class="c1"># ----------------------------------------------------------------</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://randomuser.me/api/&#39;</span>
+
+<span class="c1"># Classes</span>
+<span class="c1"># ----------------------------------------------------------------</span>
+
+<div class="viewcode-block" id="RandomUser"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser">[docs]</a><span class="k">class</span> <span class="nc">RandomUser</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># Dictionary where the random user data will be stored</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c1"># Dictionary where info section of results will be stored</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">get_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">user_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">api_info</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize RandomUser object</span>
+
+<span class="sd">        :param get_params: (Optional) Dictionary mapping query parameter names to their values. See https://randomuser.me/documentation for details on parameters.</span>
+<span class="sd">        :param user_data: (Optional) If specified, this data will be used instead of querying the API for user data. Use in instances where the user data has already been generated (e.g. restoring user data, creating multiple users with single call to API using the &#39;results&#39; parameter)</span>
+<span class="sd">        :param api_info&quot; (Optional) If the user is being generated with the user_data parameter, the info variable will be set to this. Otherwise, it will be ignored when generating a random user.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">URL</span>
+        <span class="k">if</span> <span class="n">user_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">user_data</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="n">api_info</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">request_url</span> <span class="o">=</span> <span class="n">URL</span>
+            <span class="k">if</span> <span class="n">get_params</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">request_url</span> <span class="o">+=</span> <span class="s1">&#39;?&#39;</span> <span class="o">+</span> <span class="n">urlencode</span><span class="p">(</span><span class="n">get_params</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_generate_user</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_generate_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># TODO: catch timeout exception and fall back to local data?</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request_url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">]</span>
+
+
+    <span class="c1"># Personal Info</span>
+    <span class="c1"># --------------------------------</span>
+
+<div class="viewcode-block" id="RandomUser.get_first_name"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_first_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_first_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capitalize</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns first name</span>
+
+<span class="sd">        :param capitalize: (Default = True) Capitalize first letter if True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">first_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="s1">&#39;first&#39;</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="n">first_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="k">if</span> <span class="n">capitalize</span> <span class="k">else</span> <span class="n">first_name</span>
+
+<div class="viewcode-block" id="RandomUser.get_last_name"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_last_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_last_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capitalize</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns last name</span>
+
+<span class="sd">        :param capitalize: (Default = True) Capitalize first letter if True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">last_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="s1">&#39;last&#39;</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="n">last_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="k">if</span> <span class="n">capitalize</span> <span class="k">else</span> <span class="n">last_name</span>
+
+<div class="viewcode-block" id="RandomUser.get_full_name"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_full_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capitalize</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns first and last name separated by a space</span>
+
+<span class="sd">        :param capitalize: (Default = True) Capitalize first letter of each name if True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">first_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_first_name</span><span class="p">(</span><span class="n">capitalize</span><span class="p">)</span>
+        <span class="n">last_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_last_name</span><span class="p">(</span><span class="n">capitalize</span><span class="p">)</span>
+        <span class="n">full_name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">full_name</span>
+
+<div class="viewcode-block" id="RandomUser.get_gender"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_gender">[docs]</a>    <span class="k">def</span> <span class="nf">get_gender</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns gender&quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="RandomUser.get_dob"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_dob">[docs]</a>    <span class="k">def</span> <span class="nf">get_dob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parse_time</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns date of birth as a string in the format &#39;%Y-%m-%d %H:%M:%S&#39;</span>
+
+<span class="sd">        :param parse_time: (Default = False) If True, parse date of birth string using time.strptime() and return the results instead of a string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;dob&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">parse_time</span><span class="p">:</span>
+            <span class="n">dob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_time</span><span class="p">(</span><span class="n">dob</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">dob</span>
+
+<div class="viewcode-block" id="RandomUser.get_nat"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_nat">[docs]</a>    <span class="k">def</span> <span class="nf">get_nat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns nationality&quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;nat&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Location</span>
+    <span class="c1"># --------------------------------</span>
+
+<div class="viewcode-block" id="RandomUser.get_street"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_street">[docs]</a>    <span class="k">def</span> <span class="nf">get_street</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns street address&quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;street&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="RandomUser.get_city"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_city">[docs]</a>    <span class="k">def</span> <span class="nf">get_city</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns city&quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="RandomUser.get_state"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_state">[docs]</a>    <span class="k">def</span> <span class="nf">get_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;state&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="RandomUser.get_postcode"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_postcode">[docs]</a>    <span class="k">def</span> <span class="nf">get_postcode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns post code&quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;postcode&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="RandomUser.get_zipcode"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_zipcode">[docs]</a>    <span class="k">def</span> <span class="nf">get_zipcode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Returns zip code (wrapper for get_postcode())&quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_postcode</span><span class="p">()</span>
+
+    <span class="c1"># Contact</span>
+    <span class="c1"># --------------------------------</span>
+
+    <span class="k">def</span> <span class="nf">_format_phone_number</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">phone_string</span><span class="p">,</span> <span class="n">strip_parentheses</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">strip_hyphens</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Takes a string representation of a phone number and strips characters based on parameter values</span>
+
+<span class="sd">        :param phone_string: The phone number as a string</span>
+<span class="sd">        :param strip_parentheses: (Default = True) Remove &#39;(&#39; and &#39;)&#39; characters if True</span>
+<span class="sd">        :param strip_hyphens: (Default = True) Remove &#39;-&#39; characters if True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">strip_parentheses</span><span class="p">:</span>
+            <span class="n">phone_string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;[()]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">phone_string</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">strip_hyphens</span><span class="p">:</span>
+            <span class="n">phone_string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">phone_string</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">phone_string</span>
+
+<div class="viewcode-block" id="RandomUser.get_phone"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_phone">[docs]</a>    <span class="k">def</span> <span class="nf">get_phone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strip_parentheses</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">strip_hyphens</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns phone number as a string in the format &#39;(###)-###-####&#39;</span>
+
+<span class="sd">        :param strip_parentheses: (Default = False) Omit parentheses if True</span>
+<span class="sd">        :param strip_hyphens: (Default = False) Omit hyphens if True</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_format_phone_number</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;phone&#39;</span><span class="p">],</span> <span class="n">strip_parentheses</span><span class="p">,</span> <span class="n">strip_hyphens</span><span class="p">)</span>
+
+<div class="viewcode-block" id="RandomUser.get_cell"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_cell">[docs]</a>    <span class="k">def</span> <span class="nf">get_cell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strip_parentheses</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">strip_hyphens</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns cell phone number as a string in the format &#39;(###)-###-####&#39;</span>
+
+<span class="sd">        :param strip_parentheses: (Default = False) Omit parentheses if True</span>
+<span class="sd">        :param strip_hyphens: (Default = False) Omit hyphens if True</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_format_phone_number</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;cell&#39;</span><span class="p">],</span> <span class="n">strip_parentheses</span><span class="p">,</span> <span class="n">strip_hyphens</span><span class="p">)</span>
+
+<div class="viewcode-block" id="RandomUser.get_email"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_email">[docs]</a>    <span class="k">def</span> <span class="nf">get_email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns email address&quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Login</span>
+    <span class="c1"># --------------------------------</span>
+
+<div class="viewcode-block" id="RandomUser.get_username"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_username">[docs]</a>    <span class="k">def</span> <span class="nf">get_username</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns username&quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;login&#39;</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="RandomUser.get_password"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_password">[docs]</a>    <span class="k">def</span> <span class="nf">get_password</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns password&quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;login&#39;</span><span class="p">][</span><span class="s1">&#39;password&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="RandomUser.get_registered"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_registered">[docs]</a>    <span class="k">def</span> <span class="nf">get_registered</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parse_time</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns registration date as a string in the format &#39;%Y-%m-%d %H:%M:%S&#39;</span>
+
+<span class="sd">        :param parse_time: (Default = False) If True, parse date string using time.strptime() and return the results instead of a string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">registered</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;registered&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">parse_time</span><span class="p">:</span>
+            <span class="n">registered</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_time</span><span class="p">(</span><span class="n">registered</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">registered</span>
+
+<div class="viewcode-block" id="RandomUser.get_login_salt"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_login_salt">[docs]</a>    <span class="k">def</span> <span class="nf">get_login_salt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns user login salt&quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;login&#39;</span><span class="p">][</span><span class="s1">&#39;salt&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="RandomUser.get_login_md5"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_login_md5">[docs]</a>    <span class="k">def</span> <span class="nf">get_login_md5</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns user login md5&quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;login&#39;</span><span class="p">][</span><span class="s1">&#39;md5&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="RandomUser.get_login_sha1"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_login_sha1">[docs]</a>    <span class="k">def</span> <span class="nf">get_login_sha1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns user login sha1&quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;login&#39;</span><span class="p">][</span><span class="s1">&#39;sha1&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="RandomUser.get_login_sha256"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_login_sha256">[docs]</a>    <span class="k">def</span> <span class="nf">get_login_sha256</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns user login sha256&quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;login&#39;</span><span class="p">][</span><span class="s1">&#39;sha256&#39;</span><span class="p">]</span>
+
+    <span class="c1"># ID</span>
+    <span class="c1"># --------------------------------</span>
+
+<div class="viewcode-block" id="RandomUser.get_id_type"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_id_type">[docs]</a>    <span class="k">def</span> <span class="nf">get_id_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the ID type&quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="RandomUser.get_id_number"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_id_number">[docs]</a>    <span class="k">def</span> <span class="nf">get_id_number</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the ID number&quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="RandomUser.get_id"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a dictionary mapping &#39;type&#39; to ID type and &#39;number&#39; to ID number</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_id_type</span><span class="p">(),</span> <span class="s1">&#39;number&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_id_</span><span class="p">(</span><span class="n">number</span><span class="p">)}</span>
+
+    <span class="c1"># Misc</span>
+    <span class="c1"># --------------------------------</span>
+
+    <span class="c1"># Constants for possible picture sizes</span>
+    <span class="n">PICTURE_SIZE_LARGE</span> <span class="o">=</span> <span class="s1">&#39;large&#39;</span>
+    <span class="n">PICTURE_SIZE_MEDIUM</span> <span class="o">=</span> <span class="s1">&#39;medium&#39;</span>
+    <span class="n">PICTURE_SIZE_THUMBNAIL</span> <span class="o">=</span> <span class="s1">&#39;thumbnail&#39;</span>
+
+<div class="viewcode-block" id="RandomUser.get_picture"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_picture">[docs]</a>    <span class="k">def</span> <span class="nf">get_picture</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">PICTURE_SIZE_LARGE</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns url to a .jpg of the generated user</span>
+
+<span class="sd">        :param size: (Default = PICTURE_SIZE_LARGE) The size of picture to return the url for. Possible values for this are stored in constants PICTURE_SIZE_LARGE, PICTURE_SIZE_MEDIUM, and PICTURE_SIZE_THUMBNAIL</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;picture&#39;</span><span class="p">][</span><span class="n">size</span><span class="p">]</span>
+
+    <span class="c1"># Constants for info dictionary keys</span>
+    <span class="n">INFO_SEED</span> <span class="o">=</span> <span class="s1">&#39;seed&#39;</span>
+    <span class="n">INFO_RESULTS</span> <span class="o">=</span> <span class="s1">&#39;results&#39;</span>
+    <span class="n">INFO_PAGE</span> <span class="o">=</span> <span class="s1">&#39;page&#39;</span>
+    <span class="n">INFO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;version&#39;</span>
+
+<div class="viewcode-block" id="RandomUser.get_info"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_info">[docs]</a>    <span class="k">def</span> <span class="nf">get_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a dictionary with information about the API query</span>
+
+<span class="sd">        Keys for the info dictionary are stored in constants INFO_SEED, INFO_RESULTS, INFO_PAGE, and INFO_VERSION</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span>
+
+
+    <span class="c1"># Helper Functions</span>
+    <span class="c1"># --------------------------------</span>
+
+    <span class="k">def</span> <span class="nf">_parse_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date_string</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Parses the date string format returned by the API and returns the time tuple result of time.strptime()</span>
+
+<span class="sd">        :param date_string: The date string in the format &#39;%Y-%m-%d %H:%M:%S&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">date_format</span> <span class="o">=</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span>
+        <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="n">date_format</span><span class="p">)</span>
+
+
+    <span class="c1"># Static Methods</span>
+    <span class="c1"># --------------------------------</span>
+
+<div class="viewcode-block" id="RandomUser.generate_users"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.generate_users">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">generate_users</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">get_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a list containing the specified amount of randomly generated users.</span>
+
+<span class="sd">        The Random User Generator API can generate multiple users in a single query</span>
+<span class="sd">        instead of connecting once for each user and increasing load on both ends.</span>
+
+<span class="sd">        :param amount: The number of users to generate.</span>
+<span class="sd">        :param get_params: (Optional) Dictionary mapping query parameter names to their values. See https://randomuser.me/documentation for details on parameters.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">URL</span>
+        <span class="k">if</span> <span class="n">get_params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">get_params</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># Max amount allowed is 5,000 (https://randomuser.me/documentation#multiple)</span>
+        <span class="n">get_params</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">amount</span> <span class="k">if</span> <span class="n">amount</span> <span class="o">&lt;=</span> <span class="mi">5000</span> <span class="k">else</span> <span class="mi">5000</span>
+        <span class="n">request_url</span> <span class="o">=</span> <span class="n">URL</span> <span class="o">+</span> <span class="s1">&#39;?&#39;</span> <span class="o">+</span> <span class="n">urlencode</span><span class="p">(</span><span class="n">get_params</span><span class="p">)</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">request_url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">]</span>
+        <span class="n">users</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">user_data</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">]:</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">RandomUser</span><span class="p">(</span><span class="n">user_data</span><span class="o">=</span><span class="n">user_data</span><span class="p">,</span> <span class="n">api_info</span><span class="o">=</span><span class="n">info</span><span class="p">)</span>
+            <span class="n">users</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">user</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">users</span>
+
+
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Connor de la Cruz.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
