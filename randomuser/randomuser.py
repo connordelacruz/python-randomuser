@@ -27,7 +27,7 @@ class RandomUser(object):
 
         :param get_params: (Optional) Dictionary mapping query parameter names to their values. See https://randomuser.me/documentation for details on parameters.
         :param user_data: (Optional) If specified, this data will be used instead of querying the API for user data. Use in instances where the user data has already been generated (e.g. restoring user data, creating multiple users with single call to API using the 'results' parameter)
-        :param api_info" (Optional) If the user is being generated with the user_data parameter, the info variable will be set to this. Otherwise, it will be ignored when generating a random user.
+        :param api_info: (Optional) If the user is being generated with the user_data parameter, the info variable will be set to this. Otherwise, it will be ignored when generating a random user.
         """
         global URL
         if user_data is not None:

@@ -1,22 +1,14 @@
 randomuser package
 ==================
 
-Submodules
-----------
-
-randomuser.randomuser module
+RandomUser class
 ----------------------------
 
-.. automodule:: randomuser.randomuser
+.. autoclass:: randomuser.randomuser.RandomUser
     :members:
     :undoc-members:
     :show-inheritance:
 
+    .. automethod:: __init__
 
-Module contents
----------------
 
-.. automodule:: randomuser
-    :members:
-    :undoc-members:
-    :show-inheritance:

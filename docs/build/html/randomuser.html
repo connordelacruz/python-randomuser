@@ -32,15 +32,31 @@
             
   <div class="section" id="randomuser-package">
 <h1>randomuser package<a class="headerlink" href="#randomuser-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="module-randomuser.randomuser">
-<span id="randomuser-randomuser-module"></span><h2>randomuser.randomuser module<a class="headerlink" href="#module-randomuser.randomuser" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="randomuser-class">
+<h2>RandomUser class<a class="headerlink" href="#randomuser-class" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="randomuser.randomuser.RandomUser">
 <em class="property">class </em><code class="descclassname">randomuser.randomuser.</code><code class="descname">RandomUser</code><span class="sig-paren">(</span><em>get_params=None</em>, <em>user_data=None</em>, <em>api_info=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="randomuser.randomuser.RandomUser.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>get_params=None</em>, <em>user_data=None</em>, <em>api_info=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize RandomUser object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>get_params</strong> – (Optional) Dictionary mapping query parameter names to their values. See <a class="reference external" href="https://randomuser.me/documentation">https://randomuser.me/documentation</a> for details on parameters.</li>
+<li><strong>user_data</strong> – (Optional) If specified, this data will be used instead of querying the API for user data. Use in instances where the user data has already been generated (e.g. restoring user data, creating multiple users with single call to API using the ‘results’ parameter)</li>
+<li><strong>api_info</strong> – (Optional) If the user is being generated with the user_data parameter, the info variable will be set to this. Otherwise, it will be ignored when generating a random user.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="randomuser.randomuser.RandomUser.INFO_PAGE">
 <code class="descname">INFO_PAGE</code><em class="property"> = 'page'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.INFO_PAGE" title="Permalink to this definition">¶</a></dt>
@@ -337,9 +353,6 @@ instead of connecting once for each user and increasing load on both ends.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-randomuser">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-randomuser" title="Permalink to this headline">¶</a></h2>
-</div>
 </div>
 
 
@@ -351,9 +364,7 @@ instead of connecting once for each user and increasing load on both ends.</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">randomuser package</a><ul>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-randomuser.randomuser">randomuser.randomuser module</a></li>
-<li><a class="reference internal" href="#module-randomuser">Module contents</a></li>
+<li><a class="reference internal" href="#randomuser-class">RandomUser class</a></li>
 </ul>
 </li>
 </ul>
