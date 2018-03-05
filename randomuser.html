@@ -48,8 +48,8 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>get_params</strong> – (Optional) Dictionary mapping query parameter names to their values. See <a class="reference external" href="https://randomuser.me/documentation">https://randomuser.me/documentation</a> for details on parameters.</li>
-<li><strong>user_data</strong> – (Optional) If specified, this data will be used instead of querying the API for user data. Use in instances where the user data has already been generated (e.g. restoring user data, creating multiple users with single call to API using the ‘results’ parameter)</li>
-<li><strong>api_info</strong> – (Optional) If the user is being generated with the user_data parameter, the info variable will be set to this. Otherwise, it will be ignored when generating a random user.</li>
+<li><strong>user_data</strong> – (Optional) If specified, this _data will be used instead of querying the API for user _data. Use in instances where the user _data has already been generated (e.g. restoring user _data, creating multiple users with single call to API using the ‘results’ parameter)</li>
+<li><strong>api_info</strong> – (Optional) If the user is being generated with the user_data parameter, the _info variable will be set to this. Otherwise, it will be ignored when generating a random user.</li>
 </ul>
 </td>
 </tr>
@@ -90,11 +90,6 @@
 <dl class="attribute">
 <dt id="randomuser.randomuser.RandomUser.PICTURE_SIZE_THUMBNAIL">
 <code class="descname">PICTURE_SIZE_THUMBNAIL</code><em class="property"> = 'thumbnail'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.PICTURE_SIZE_THUMBNAIL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="randomuser.randomuser.RandomUser.data">
-<code class="descname">data</code><em class="property"> = {}</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.data" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
@@ -217,7 +212,7 @@ instead of connecting once for each user and increasing load on both ends.</p>
 <dt id="randomuser.randomuser.RandomUser.get_info">
 <code class="descname">get_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary with information about the API query</p>
-<p>Keys for the info dictionary are stored in constants INFO_SEED, INFO_RESULTS, INFO_PAGE, and INFO_VERSION</p>
+<p>Keys for the _info dictionary are stored in constants INFO_SEED, INFO_RESULTS, INFO_PAGE, and INFO_VERSION</p>
 </dd></dl>
 
 <dl class="method">
@@ -344,11 +339,6 @@ instead of connecting once for each user and increasing load on both ends.</p>
 <code class="descname">get_zipcode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_zipcode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_zipcode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns zip code (wrapper for get_postcode())</p>
 </dd></dl>
-
-<dl class="attribute">
-<dt id="randomuser.randomuser.RandomUser.info">
-<code class="descname">info</code><em class="property"> = {}</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.info" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
