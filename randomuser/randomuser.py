@@ -44,7 +44,7 @@ class RandomUser(object):
         # TODO: catch timeout exception and fall back to local _data?
         results = json.loads(request.urlopen(self.request_url).read())
         self._data = results['results'][0]
-        self._info = results['_info']
+        self._info = results['info']
 
     # Personal Info
     # --------------------------------
@@ -263,7 +263,7 @@ class RandomUser(object):
         get_params['results'] = amount if amount <= 5000 else 5000
         request_url = URL + '?' + urlencode(get_params)
         results = json.loads(request.urlopen(request_url).read())
-        info = results['_info']
+        info = results['info']
         users = []
         for user_data in results['results']:
             user = RandomUser(user_data=user_data, api_info=info)
