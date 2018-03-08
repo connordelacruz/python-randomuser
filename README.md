@@ -28,9 +28,7 @@ For more information on what parameters can be specified, see the [randomuser.me
 
 ## Method Overview
 
-**TODO:** Use GitHub pages for documentation. 
-
-For more details on the RandomUser class and optional parameters for these methods, see the [documentation](docs/build/html/randomuser.html).
+For details on the RandomUser class and optional parameters for these methods, see the [documentation](http://connordelacruz.com/python-randomuser/randomuser.html).
 
 ### Getter Methods
 
