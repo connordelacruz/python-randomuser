@@ -57,13 +57,9 @@ class RandomUser(object):
     def __init__(self, get_params=None, user_data=None, api_info=None):
         """Initialize RandomUser object
 
-        :param get_params: (Optional) Dictionary mapping query parameter names to their values. See
-        https://randomuser.me/documentation for details on parameters.
-        :param user_data: (Optional) If specified, this _data will be used instead of querying the API for user _data.
-        Use in instances where the user _data has already been generated (e.g. restoring user _data, creating multiple
-        users with single call to API using the 'results' parameter)
-        :param api_info: (Optional) If the user is being generated with the user_data parameter, the _info variable will
-        be set to this. Otherwise, it will be ignored when generating a random user.
+        :param get_params: (Optional) Dictionary mapping query parameter names to their values. See https://randomuser.me/documentation for details on parameters.
+        :param user_data: (Optional) If specified, this _data will be used instead of querying the API for user _data. Use in instances where the user _data has already been generated (e.g. restoring user _data, creating multiple users with single call to API using the 'results' parameter)
+        :param api_info: (Optional) If the user is being generated with the user_data parameter, the _info variable will be set to this. Otherwise, it will be ignored when generating a random user.
         """
         global URL
         if user_data is not None:
@@ -119,8 +115,7 @@ class RandomUser(object):
     def get_dob(self, parse_time=False):
         """Returns date of birth as a string in the format '%Y-%m-%d %H:%M:%S'
 
-        :param parse_time: (Default = False) If True, parse date of birth string using time.strptime() and return the
-        results instead of a string
+        :param parse_time: (Default = False) If True, parse date of birth string using time.strptime() and return the results instead of a string
         """
         dob = self._data['dob']
         if parse_time:
@@ -203,8 +198,7 @@ class RandomUser(object):
     def get_registered(self, parse_time=False):
         """Returns registration date as a string in the format '%Y-%m-%d %H:%M:%S'
 
-        :param parse_time: (Default = False) If True, parse date string using time.strptime() and return the results
-        instead of a string
+        :param parse_time: (Default = False) If True, parse date string using time.strptime() and return the results instead of a string
         """
         registered = self._data['registered']
         if parse_time:
@@ -249,8 +243,7 @@ class RandomUser(object):
     def get_picture(self, size=PictureSize.LARGE):
         """Returns url to a .jpg of the generated user
 
-        :param size: (Default = PictureSize.LARGE) The size of picture to return the url for. Size values are stored as
-        constants in PictureSize subclass.
+        :param size: (Default = PictureSize.LARGE) The size of picture to return the url for. Size values are stored as constants in PictureSize subclass.
         """
         return self._data['picture'][size]
 
@@ -283,8 +276,7 @@ class RandomUser(object):
         instead of connecting once for each user and increasing load on both ends.
 
         :param amount: The number of users to generate.
-        :param get_params: (Optional) Dictionary mapping query parameter names to their values. See
-        https://randomuser.me/documentation for details on parameters.
+        :param get_params: (Optional) Dictionary mapping query parameter names to their values. See https://randomuser.me/documentation for details on parameters.
         """
         global URL
         if get_params is None:
