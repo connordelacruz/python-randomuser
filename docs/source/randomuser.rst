@@ -1,8 +1,5 @@
-randomuser package
-==================
-
 RandomUser class
-----------------------------
+================
 
 .. autoclass:: randomuser.randomuser.RandomUser
     :members:
