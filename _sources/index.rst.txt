@@ -6,6 +6,9 @@
 Python Random User Generator
 ========================================================
 
+Python class for generating random user data using
+`randomuser.me <https://randomuser.me>`__ API.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -14,9 +17,4 @@ Python Random User Generator
 
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. include:: ./README.rst
