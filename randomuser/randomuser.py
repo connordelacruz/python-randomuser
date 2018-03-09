@@ -41,6 +41,7 @@ class RandomUser(object):
             self._generate_user()
 
     def _generate_user(self):
+        """Query the randomuser.me API and store parsed results in _data and _info"""
         # TODO: catch timeout exception and fall back to local _data?
         results = json.loads(request.urlopen(self.request_url).read())
         self._data = results['results'][0]
