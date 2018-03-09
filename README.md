@@ -1,6 +1,6 @@
 # Python Random User Generator
 
-Python class for generating random user data using [randomuser.me](https://randomuser.me) API 
+Python class for generating random user data using [randomuser.me](https://randomuser.me) API.
 
 ## Basic Usage
 
@@ -29,8 +29,6 @@ For more information on what parameters can be specified, see the [randomuser.me
 ## Method Overview
 
 For details on the RandomUser class and optional parameters for these methods, see the [documentation](http://connordelacruz.com/python-randomuser/randomuser.html).
-
-### Getter Methods
 
 ```python
 get_cell()
