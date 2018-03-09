@@ -11,10 +11,11 @@ import re
 # Global Variables
 # ----------------------------------------------------------------
 
-URL = 'https://randomuser.me/api/'
+# Version of the random user API
+API_VERSION = '1.1'
 
+URL = 'https://randomuser.me/api/{}/'.format(API_VERSION)
 
-# TODO: specify API version to ensure this will work the same in the future
 
 # TODO: Go through API docs and see if there's anything that could be declared as constants? (e.g. nationality strings)
 
