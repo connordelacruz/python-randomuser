@@ -161,8 +161,7 @@
 <dl class="class">
 <dt id="randomuser.randomuser.RandomUser">
 <em class="property">class </em><code class="descclassname">randomuser.randomuser.</code><code class="descname">RandomUser</code><span class="sig-paren">(</span><em>get_params=None</em>, <em>user_data=None</em>, <em>api_info=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="method">
+<dd><dl class="method">
 <dt id="randomuser.randomuser.RandomUser.__init__">
 <code class="descname">__init__</code><span class="sig-paren">(</span><em>get_params=None</em>, <em>user_data=None</em>, <em>api_info=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize RandomUser object</p>
@@ -181,40 +180,59 @@
 </table>
 </dd></dl>
 
+<dl class="exception">
+<dt id="randomuser.randomuser.RandomUser.APIError">
+<em class="property">exception </em><code class="descname">APIError</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.APIError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.APIError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception to raise when the API query returns an error</p>
+<p>Documentation on API errors: <a class="reference external" href="https://randomuser.me/documentation#errors">https://randomuser.me/documentation#errors</a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="randomuser.randomuser.RandomUser.Info">
+<em class="property">class </em><code class="descname">Info</code><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.Info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.Info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constants for _info dictionary keys</p>
 <dl class="attribute">
-<dt id="randomuser.randomuser.RandomUser.INFO_PAGE">
-<code class="descname">INFO_PAGE</code><em class="property"> = 'page'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.INFO_PAGE" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.randomuser.RandomUser.Info.PAGE">
+<code class="descname">PAGE</code><em class="property"> = 'page'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.Info.PAGE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="randomuser.randomuser.RandomUser.INFO_RESULTS">
-<code class="descname">INFO_RESULTS</code><em class="property"> = 'results'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.INFO_RESULTS" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.randomuser.RandomUser.Info.RESULTS">
+<code class="descname">RESULTS</code><em class="property"> = 'results'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.Info.RESULTS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="randomuser.randomuser.RandomUser.INFO_SEED">
-<code class="descname">INFO_SEED</code><em class="property"> = 'seed'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.INFO_SEED" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.randomuser.RandomUser.Info.SEED">
+<code class="descname">SEED</code><em class="property"> = 'seed'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.Info.SEED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="randomuser.randomuser.RandomUser.INFO_VERSION">
-<code class="descname">INFO_VERSION</code><em class="property"> = 'version'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.INFO_VERSION" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.randomuser.RandomUser.Info.VERSION">
+<code class="descname">VERSION</code><em class="property"> = 'version'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.Info.VERSION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="randomuser.randomuser.RandomUser.PictureSize">
+<em class="property">class </em><code class="descname">PictureSize</code><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.PictureSize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.PictureSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constants for size parameter in get_picture()</p>
+<dl class="attribute">
+<dt id="randomuser.randomuser.RandomUser.PictureSize.LARGE">
+<code class="descname">LARGE</code><em class="property"> = 'large'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.PictureSize.LARGE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="randomuser.randomuser.RandomUser.PICTURE_SIZE_LARGE">
-<code class="descname">PICTURE_SIZE_LARGE</code><em class="property"> = 'large'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.PICTURE_SIZE_LARGE" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.randomuser.RandomUser.PictureSize.MEDIUM">
+<code class="descname">MEDIUM</code><em class="property"> = 'medium'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.PictureSize.MEDIUM" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="randomuser.randomuser.RandomUser.PICTURE_SIZE_MEDIUM">
-<code class="descname">PICTURE_SIZE_MEDIUM</code><em class="property"> = 'medium'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.PICTURE_SIZE_MEDIUM" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.randomuser.RandomUser.PictureSize.THUMBNAIL">
+<code class="descname">THUMBNAIL</code><em class="property"> = 'thumbnail'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.PictureSize.THUMBNAIL" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
-<dt id="randomuser.randomuser.RandomUser.PICTURE_SIZE_THUMBNAIL">
-<code class="descname">PICTURE_SIZE_THUMBNAIL</code><em class="property"> = 'thumbnail'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.PICTURE_SIZE_THUMBNAIL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="randomuser.randomuser.RandomUser.generate_users">
@@ -336,7 +354,7 @@ instead of connecting once for each user and increasing load on both ends.</p>
 <dt id="randomuser.randomuser.RandomUser.get_info">
 <code class="descname">get_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary with information about the API query</p>
-<p>Keys for the _info dictionary are stored in constants INFO_SEED, INFO_RESULTS, INFO_PAGE, and INFO_VERSION</p>
+<p>Keys for the info dictionary are stored as constants in Info subclass.</p>
 </dd></dl>
 
 <dl class="method">
@@ -415,7 +433,7 @@ instead of connecting once for each user and increasing load on both ends.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> – (Default = PICTURE_SIZE_LARGE) The size of picture to return the url for. Possible values for this are stored in constants PICTURE_SIZE_LARGE, PICTURE_SIZE_MEDIUM, and PICTURE_SIZE_THUMBNAIL</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> – (Default = PictureSize.LARGE) The size of picture to return the url for. Size values are stored as constants in PictureSize subclass.</td>
 </tr>
 </tbody>
 </table>

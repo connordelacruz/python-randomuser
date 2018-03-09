@@ -165,7 +165,10 @@
 <span class="c1"># Global Variables</span>
 <span class="c1"># ----------------------------------------------------------------</span>
 
-<span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://randomuser.me/api/&#39;</span>
+<span class="c1"># Version of the random user API</span>
+<span class="n">API_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.1&#39;</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://randomuser.me/api/</span><span class="si">{}</span><span class="s1">/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">API_VERSION</span><span class="p">)</span>
 
 
 <span class="c1"># Classes</span>
@@ -176,6 +179,34 @@
     <span class="n">_data</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="c1"># Dictionary where _info section of results will be stored</span>
     <span class="n">_info</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># Constants</span>
+
+<div class="viewcode-block" id="RandomUser.PictureSize"><a class="viewcode-back" href="../../randomuser.html#randomuser.randomuser.RandomUser.PictureSize">[docs]</a>    <span class="k">class</span> <span class="nc">PictureSize</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Constants for size parameter in get_picture()&quot;&quot;&quot;</span>
+        <span class="n">LARGE</span> <span class="o">=</span> <span class="s1">&#39;large&#39;</span>
+        <span class="n">MEDIUM</span> <span class="o">=</span> <span class="s1">&#39;medium&#39;</span></div>
+        <span class="n">THUMBNAIL</span> <span class="o">=</span> <span class="s1">&#39;thumbnail&#39;</span>
+
+<div class="viewcode-block" id="RandomUser.Info"><a class="viewcode-back" href="../../randomuser.html#randomuser.randomuser.RandomUser.Info">[docs]</a>    <span class="k">class</span> <span class="nc">Info</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Constants for _info dictionary keys&quot;&quot;&quot;</span>
+        <span class="n">SEED</span> <span class="o">=</span> <span class="s1">&#39;seed&#39;</span>
+        <span class="n">RESULTS</span> <span class="o">=</span> <span class="s1">&#39;results&#39;</span>
+        <span class="n">PAGE</span> <span class="o">=</span> <span class="s1">&#39;page&#39;</span></div>
+        <span class="n">VERSION</span> <span class="o">=</span> <span class="s1">&#39;version&#39;</span>
+
+    <span class="c1"># Exceptions</span>
+
+<div class="viewcode-block" id="RandomUser.APIError"><a class="viewcode-back" href="../../randomuser.html#randomuser.randomuser.RandomUser.APIError">[docs]</a>    <span class="k">class</span> <span class="nc">APIError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Exception to raise when the API query returns an error</span>
+
+<span class="sd">        Documentation on API errors: https://randomuser.me/documentation#errors</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span></div>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;API returned an error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+
+    <span class="c1"># Functions</span>
 
 <div class="viewcode-block" id="RandomUser.__init__"><a class="viewcode-back" href="../../randomuser.html#randomuser.randomuser.RandomUser.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">get_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">user_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">api_info</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initialize RandomUser object</span>
@@ -195,8 +226,10 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_generate_user</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_generate_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># TODO: catch timeout exception and fall back to local _data?</span>
+        <span class="sd">&quot;&quot;&quot;Query the randomuser.me API and store parsed results in _data and _info&quot;&quot;&quot;</span>
         <span class="n">results</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request_url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+        <span class="k">if</span> <span class="s1">&#39;error&#39;</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">RandomUser</span><span class="o">.</span><span class="n">APIError</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_info</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">]</span>
 
@@ -361,28 +394,17 @@
     <span class="c1"># Misc</span>
     <span class="c1"># --------------------------------</span>
 
-    <span class="c1"># Constants for possible picture sizes</span>
-    <span class="n">PICTURE_SIZE_LARGE</span> <span class="o">=</span> <span class="s1">&#39;large&#39;</span>
-    <span class="n">PICTURE_SIZE_MEDIUM</span> <span class="o">=</span> <span class="s1">&#39;medium&#39;</span>
-    <span class="n">PICTURE_SIZE_THUMBNAIL</span> <span class="o">=</span> <span class="s1">&#39;thumbnail&#39;</span>
-
-<div class="viewcode-block" id="RandomUser.get_picture"><a class="viewcode-back" href="../../randomuser.html#randomuser.randomuser.RandomUser.get_picture">[docs]</a>    <span class="k">def</span> <span class="nf">get_picture</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">PICTURE_SIZE_LARGE</span><span class="p">):</span>
+<div class="viewcode-block" id="RandomUser.get_picture"><a class="viewcode-back" href="../../randomuser.html#randomuser.randomuser.RandomUser.get_picture">[docs]</a>    <span class="k">def</span> <span class="nf">get_picture</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">PictureSize</span><span class="o">.</span><span class="n">LARGE</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns url to a .jpg of the generated user</span>
 
-<span class="sd">        :param size: (Default = PICTURE_SIZE_LARGE) The size of picture to return the url for. Possible values for this are stored in constants PICTURE_SIZE_LARGE, PICTURE_SIZE_MEDIUM, and PICTURE_SIZE_THUMBNAIL</span>
+<span class="sd">        :param size: (Default = PictureSize.LARGE) The size of picture to return the url for. Size values are stored as constants in PictureSize subclass.</span>
 <span class="sd">        &quot;&quot;&quot;</span></div>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;picture&#39;</span><span class="p">][</span><span class="n">size</span><span class="p">]</span>
-
-    <span class="c1"># Constants for _info dictionary keys</span>
-    <span class="n">INFO_SEED</span> <span class="o">=</span> <span class="s1">&#39;seed&#39;</span>
-    <span class="n">INFO_RESULTS</span> <span class="o">=</span> <span class="s1">&#39;results&#39;</span>
-    <span class="n">INFO_PAGE</span> <span class="o">=</span> <span class="s1">&#39;page&#39;</span>
-    <span class="n">INFO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;version&#39;</span>
 
 <div class="viewcode-block" id="RandomUser.get_info"><a class="viewcode-back" href="../../randomuser.html#randomuser.randomuser.RandomUser.get_info">[docs]</a>    <span class="k">def</span> <span class="nf">get_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns a dictionary with information about the API query</span>
 
-<span class="sd">        Keys for the _info dictionary are stored in constants INFO_SEED, INFO_RESULTS, INFO_PAGE, and INFO_VERSION</span>
+<span class="sd">        Keys for the info dictionary are stored as constants in Info subclass.</span>
 <span class="sd">        &quot;&quot;&quot;</span></div>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_info</span>
 
@@ -417,6 +439,8 @@
         <span class="n">get_params</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">amount</span> <span class="k">if</span> <span class="n">amount</span> <span class="o">&lt;=</span> <span class="mi">5000</span> <span class="k">else</span> <span class="mi">5000</span>
         <span class="n">request_url</span> <span class="o">=</span> <span class="n">URL</span> <span class="o">+</span> <span class="s1">&#39;?&#39;</span> <span class="o">+</span> <span class="n">urlencode</span><span class="p">(</span><span class="n">get_params</span><span class="p">)</span>
         <span class="n">results</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">request_url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+        <span class="k">if</span> <span class="s1">&#39;error&#39;</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">RandomUser</span><span class="o">.</span><span class="n">APIError</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">])</span>
         <span class="n">info</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">]</span>
         <span class="n">users</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">user_data</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">]:</span>
