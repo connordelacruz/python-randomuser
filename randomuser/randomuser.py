@@ -27,6 +27,23 @@ class RandomUser(object):
     # Dictionary where _info section of results will be stored
     _info = {}
 
+    # Constants
+
+    class PictureSize(object):
+        """Constants for size parameter in get_picture()"""
+        LARGE = 'large'
+        MEDIUM = 'medium'
+        THUMBNAIL = 'thumbnail'
+
+    class Info(object):
+        """Constants for _info dictionary keys"""
+        SEED = 'seed'
+        RESULTS = 'results'
+        PAGE = 'page'
+        VERSION = 'version'
+
+
+
     def __init__(self, get_params=None, user_data=None, api_info=None):
         """Initialize RandomUser object
 
@@ -212,28 +229,17 @@ class RandomUser(object):
     # Misc
     # --------------------------------
 
-    # Constants for possible picture sizes
-    PICTURE_SIZE_LARGE = 'large'
-    PICTURE_SIZE_MEDIUM = 'medium'
-    PICTURE_SIZE_THUMBNAIL = 'thumbnail'
-
-    def get_picture(self, size=PICTURE_SIZE_LARGE):
+    def get_picture(self, size=PictureSize.LARGE):
         """Returns url to a .jpg of the generated user
 
-        :param size: (Default = PICTURE_SIZE_LARGE) The size of picture to return the url for. Possible values for this are stored in constants PICTURE_SIZE_LARGE, PICTURE_SIZE_MEDIUM, and PICTURE_SIZE_THUMBNAIL
+        :param size: (Default = PictureSize.LARGE) The size of picture to return the url for. Size values are stored as constants in PictureSize subclass.
         """
         return self._data['picture'][size]
-
-    # Constants for _info dictionary keys
-    INFO_SEED = 'seed'
-    INFO_RESULTS = 'results'
-    INFO_PAGE = 'page'
-    INFO_VERSION = 'version'
 
     def get_info(self):
         """Returns a dictionary with information about the API query
 
-        Keys for the _info dictionary are stored in constants INFO_SEED, INFO_RESULTS, INFO_PAGE, and INFO_VERSION
+        Keys for the info dictionary are stored as constants in Info subclass.
         """
         return self._info
 
