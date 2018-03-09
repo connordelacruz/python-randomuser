@@ -17,9 +17,6 @@ API_VERSION = '1.1'
 URL = 'https://randomuser.me/api/{}/'.format(API_VERSION)
 
 
-# TODO: Go through API docs and see if there's anything that could be declared as constants? (e.g. nationality strings)
-
-
 # Classes
 # ----------------------------------------------------------------
 
@@ -44,6 +41,19 @@ class RandomUser(object):
         PAGE = 'page'
         VERSION = 'version'
 
+    # Exceptions
+
+    class APIError(Exception):
+        """Exception to raise when the API query returns an error
+
+        Documentation on API errors: https://randomuser.me/documentation#errors
+        """
+
+        def __init__(self, message):
+            super().__init__('API returned an error: {}'.format(message))
+
+    # Functions
+
     def __init__(self, get_params=None, user_data=None, api_info=None):
         """Initialize RandomUser object
 
@@ -67,8 +77,9 @@ class RandomUser(object):
 
     def _generate_user(self):
         """Query the randomuser.me API and store parsed results in _data and _info"""
-        # TODO: catch timeout exception and fall back to local _data?
         results = json.loads(request.urlopen(self.request_url).read())
+        if 'error' in results:
+            raise RandomUser.APIError(results['error'])
         self._data = results['results'][0]
         self._info = results['info']
 
@@ -282,6 +293,8 @@ class RandomUser(object):
         get_params['results'] = amount if amount <= 5000 else 5000
         request_url = URL + '?' + urlencode(get_params)
         results = json.loads(request.urlopen(request_url).read())
+        if 'error' in results:
+            raise RandomUser.APIError(results['error'])
         info = results['info']
         users = []
         for user_data in results['results']:
