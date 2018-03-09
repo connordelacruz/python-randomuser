@@ -13,6 +13,10 @@ import re
 
 URL = 'https://randomuser.me/api/'
 
+# TODO: specify API version to ensure this will work the same in the future
+
+# TODO: Go through API docs and see if there's anything that could be declared as constants? (e.g. nationality strings)
+
 
 # Classes
 # ----------------------------------------------------------------
