@@ -30,56 +30,31 @@ For more information on what parameters can be specified, see the [randomuser.me
 
 For details on the RandomUser class and optional parameters for these methods, see the [documentation](http://connordelacruz.com/python-randomuser/randomuser.html).
 
-```python
-get_cell()
+### Getter Methods
 
-get_city()
-
-get_dob()
-
-get_email()
-
-get_first_name()
-
-get_full_name()
-
-get_gender()
-
-get_id()
-
-get_id_number()
-
-get_id_type()
-
-get_info()
-
-get_last_name()
-
-get_login_md5()
-
-get_login_salt()
-
-get_login_sha1()
-
-get_login_sha256()
-
-get_nat()
-
-get_password()
-
-get_phone()
-
-get_picture()
-
-get_postcode()
-
-get_registered()
-
-get_state()
-
-get_street()
-
-get_username()
-
-get_zipcode()
-```
+* `get_cell()`
+* `get_city()`
+* `get_dob()`
+* `get_email()`
+* `get_first_name()`
+* `get_full_name()`
+* `get_gender()`
+* `get_id()`
+* `get_id_number()`
+* `get_id_type()`
+* `get_info()`
+* `get_last_name()`
+* `get_login_md5()`
+* `get_login_salt()`
+* `get_login_sha1()`
+* `get_login_sha256()`
+* `get_nat()`
+* `get_password()`
+* `get_phone()`
+* `get_picture()`
+* `get_postcode()`
+* `get_registered()`
+* `get_state()`
+* `get_street()`
+* `get_username()`
+* `get_zipcode()`
