@@ -19,14 +19,17 @@ sys.path.insert(0, os.path.abspath('../../'))
 
 # -- Project information -----------------------------------------------------
 
+# For automatic versioning
+from randomuser.version import __version__
+
 project = 'Python Random User Generator'
 copyright = '2018, Connor de la Cruz'
 author = 'Connor de la Cruz'
 
 # The short X.Y version
-version = ''
+version = '{version[0]}.{version[1]}'.format(version=__version__.split('.'))
 # The full version, including alpha/beta/rc tags
-release = ''
+release = __version__
 
 
 # -- General configuration ---------------------------------------------------
