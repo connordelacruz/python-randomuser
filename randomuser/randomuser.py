@@ -129,16 +129,29 @@ class RandomUser(object):
     # Location
     # --------------------------------
 
-    def get_street(self):
-        """Returns street address"""
-        return self._data['location']['street']
+    def get_street(self, capitalize=True):
+        """Returns street address
 
-    def get_city(self):
-        """Returns city"""
-        return self._data['location']['city']
+        :param capitalize: (Default = True) Capitalize first letter of words if True
+        """
+        street = self._data['location']['street']
+        return street.title() if capitalize else street
 
-    def get_state(self):
-        return self._data['location']['state']
+    def get_city(self, capitalize=True):
+        """Returns city
+
+        :param capitalize: (Default = True) Capitalize first letter of words if True
+        """
+        city = self._data['location']['city']
+        return city.title() if capitalize else city
+
+    def get_state(self, capitalize=True):
+        """Returns state
+
+        :param capitalize: (Default = True) Capitalize first letter of words if True
+        """
+        state = self._data['location']['state']
+        return state.title() if capitalize else state
 
     def get_postcode(self):
         """Returns post code"""
