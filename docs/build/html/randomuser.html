@@ -8,10 +8,12 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>RandomUser class &mdash; Python Random User Generator 1.1.0 documentation</title>
+  <title>RandomUser class &mdash; Python Random User Generator 1.2.0 documentation</title>
   
 
   
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
   
   
   
@@ -35,7 +37,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Python Random User Generator 1.1.0 documentation" href="index.html"/>
+    <link rel="top" title="Python Random User Generator 1.2.0 documentation" href="index.html"/>
         <link rel="prev" title="Python Random User Generator" href="index.html"/> 
 
   
@@ -65,7 +67,7 @@
             
             
               <div class="version">
-                1.1
+                1.2
               </div>
             
           
@@ -158,11 +160,11 @@
   <div class="section" id="randomuser-class">
 <h1>RandomUser class<a class="headerlink" href="#randomuser-class" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="randomuser.randomuser.RandomUser">
-<em class="property">class </em><code class="descclassname">randomuser.randomuser.</code><code class="descname">RandomUser</code><span class="sig-paren">(</span><em>get_params=None</em>, <em>user_data=None</em>, <em>api_info=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser">
+<em class="property">class </em><code class="descclassname">randomuser.</code><code class="descname">RandomUser</code><span class="sig-paren">(</span><em>get_params=None</em>, <em>user_data=None</em>, <em>api_info=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
-<dt id="randomuser.randomuser.RandomUser.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>get_params=None</em>, <em>user_data=None</em>, <em>api_info=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>get_params=None</em>, <em>user_data=None</em>, <em>api_info=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize RandomUser object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -180,62 +182,62 @@
 </dd></dl>
 
 <dl class="exception">
-<dt id="randomuser.randomuser.RandomUser.APIError">
-<em class="property">exception </em><code class="descname">APIError</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.APIError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.APIError" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.APIError">
+<em class="property">exception </em><code class="descname">APIError</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.APIError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.APIError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exception to raise when the API query returns an error</p>
 <p>Documentation on API errors: <a class="reference external" href="https://randomuser.me/documentation#errors">https://randomuser.me/documentation#errors</a></p>
 </dd></dl>
 
 <dl class="class">
-<dt id="randomuser.randomuser.RandomUser.Info">
-<em class="property">class </em><code class="descname">Info</code><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.Info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.Info" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.Info">
+<em class="property">class </em><code class="descname">Info</code><a class="reference internal" href="_modules/randomuser.html#RandomUser.Info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.Info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constants for _info dictionary keys</p>
 <dl class="attribute">
-<dt id="randomuser.randomuser.RandomUser.Info.PAGE">
-<code class="descname">PAGE</code><em class="property"> = 'page'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.Info.PAGE" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.Info.PAGE">
+<code class="descname">PAGE</code><em class="property"> = 'page'</em><a class="headerlink" href="#randomuser.RandomUser.Info.PAGE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="randomuser.randomuser.RandomUser.Info.RESULTS">
-<code class="descname">RESULTS</code><em class="property"> = 'results'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.Info.RESULTS" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.Info.RESULTS">
+<code class="descname">RESULTS</code><em class="property"> = 'results'</em><a class="headerlink" href="#randomuser.RandomUser.Info.RESULTS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="randomuser.randomuser.RandomUser.Info.SEED">
-<code class="descname">SEED</code><em class="property"> = 'seed'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.Info.SEED" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.Info.SEED">
+<code class="descname">SEED</code><em class="property"> = 'seed'</em><a class="headerlink" href="#randomuser.RandomUser.Info.SEED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="randomuser.randomuser.RandomUser.Info.VERSION">
-<code class="descname">VERSION</code><em class="property"> = 'version'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.Info.VERSION" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.Info.VERSION">
+<code class="descname">VERSION</code><em class="property"> = 'version'</em><a class="headerlink" href="#randomuser.RandomUser.Info.VERSION" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="randomuser.randomuser.RandomUser.PictureSize">
-<em class="property">class </em><code class="descname">PictureSize</code><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.PictureSize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.PictureSize" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.PictureSize">
+<em class="property">class </em><code class="descname">PictureSize</code><a class="reference internal" href="_modules/randomuser.html#RandomUser.PictureSize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.PictureSize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constants for size parameter in get_picture()</p>
 <dl class="attribute">
-<dt id="randomuser.randomuser.RandomUser.PictureSize.LARGE">
-<code class="descname">LARGE</code><em class="property"> = 'large'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.PictureSize.LARGE" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.PictureSize.LARGE">
+<code class="descname">LARGE</code><em class="property"> = 'large'</em><a class="headerlink" href="#randomuser.RandomUser.PictureSize.LARGE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="randomuser.randomuser.RandomUser.PictureSize.MEDIUM">
-<code class="descname">MEDIUM</code><em class="property"> = 'medium'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.PictureSize.MEDIUM" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.PictureSize.MEDIUM">
+<code class="descname">MEDIUM</code><em class="property"> = 'medium'</em><a class="headerlink" href="#randomuser.RandomUser.PictureSize.MEDIUM" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="randomuser.randomuser.RandomUser.PictureSize.THUMBNAIL">
-<code class="descname">THUMBNAIL</code><em class="property"> = 'thumbnail'</em><a class="headerlink" href="#randomuser.randomuser.RandomUser.PictureSize.THUMBNAIL" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.PictureSize.THUMBNAIL">
+<code class="descname">THUMBNAIL</code><em class="property"> = 'thumbnail'</em><a class="headerlink" href="#randomuser.RandomUser.PictureSize.THUMBNAIL" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="staticmethod">
-<dt id="randomuser.randomuser.RandomUser.generate_users">
-<em class="property">static </em><code class="descname">generate_users</code><span class="sig-paren">(</span><em>get_params=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.generate_users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.generate_users" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.generate_users">
+<em class="property">static </em><code class="descname">generate_users</code><span class="sig-paren">(</span><em>get_params=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.generate_users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.generate_users" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list containing the specified amount of randomly generated users.</p>
 <p>The Random User Generator API can generate multiple users in a single query
 instead of connecting once for each user and increasing load on both ends.</p>
@@ -254,8 +256,8 @@ instead of connecting once for each user and increasing load on both ends.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_cell">
-<code class="descname">get_cell</code><span class="sig-paren">(</span><em>strip_parentheses=False</em>, <em>strip_hyphens=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_cell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_cell" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_cell">
+<code class="descname">get_cell</code><span class="sig-paren">(</span><em>strip_parentheses=False</em>, <em>strip_hyphens=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_cell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns cell phone number as a string in the format ‘(###)-###-####’</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -272,8 +274,8 @@ instead of connecting once for each user and increasing load on both ends.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_city">
-<code class="descname">get_city</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_city"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_city" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_city">
+<code class="descname">get_city</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_city"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_city" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns city</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -286,8 +288,8 @@ instead of connecting once for each user and increasing load on both ends.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_dob">
-<code class="descname">get_dob</code><span class="sig-paren">(</span><em>parse_time=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_dob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_dob" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_dob">
+<code class="descname">get_dob</code><span class="sig-paren">(</span><em>parse_time=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_dob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_dob" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns date of birth as a string in the format ‘%Y-%m-%d %H:%M:%S’</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -300,14 +302,14 @@ instead of connecting once for each user and increasing load on both ends.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_email">
-<code class="descname">get_email</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_email"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_email" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_email">
+<code class="descname">get_email</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_email"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_email" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns email address</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_first_name">
-<code class="descname">get_first_name</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_first_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_first_name" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_first_name">
+<code class="descname">get_first_name</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_first_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_first_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns first name</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -320,8 +322,8 @@ instead of connecting once for each user and increasing load on both ends.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_full_name">
-<code class="descname">get_full_name</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_full_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_full_name" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_full_name">
+<code class="descname">get_full_name</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_full_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_full_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns first and last name separated by a space</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -334,39 +336,39 @@ instead of connecting once for each user and increasing load on both ends.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_gender">
-<code class="descname">get_gender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_gender"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_gender" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_gender">
+<code class="descname">get_gender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_gender"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_gender" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns gender</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_id">
-<code class="descname">get_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_id" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_id">
+<code class="descname">get_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary mapping ‘type’ to ID type and ‘number’ to ID number</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_id_number">
-<code class="descname">get_id_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_id_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_id_number" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_id_number">
+<code class="descname">get_id_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_id_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_id_number" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the ID number</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_id_type">
-<code class="descname">get_id_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_id_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_id_type" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_id_type">
+<code class="descname">get_id_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_id_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_id_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the ID type</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_info">
-<code class="descname">get_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_info" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_info">
+<code class="descname">get_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary with information about the API query</p>
 <p>Keys for the info dictionary are stored as constants in Info subclass.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_last_name">
-<code class="descname">get_last_name</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_last_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_last_name" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_last_name">
+<code class="descname">get_last_name</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_last_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_last_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns last name</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -379,44 +381,44 @@ instead of connecting once for each user and increasing load on both ends.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_login_md5">
-<code class="descname">get_login_md5</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_login_md5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_login_md5" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_login_md5">
+<code class="descname">get_login_md5</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_login_md5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_login_md5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns user login md5</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_login_salt">
-<code class="descname">get_login_salt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_login_salt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_login_salt" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_login_salt">
+<code class="descname">get_login_salt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_login_salt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_login_salt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns user login salt</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_login_sha1">
-<code class="descname">get_login_sha1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_login_sha1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_login_sha1" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_login_sha1">
+<code class="descname">get_login_sha1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_login_sha1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_login_sha1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns user login sha1</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_login_sha256">
-<code class="descname">get_login_sha256</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_login_sha256"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_login_sha256" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_login_sha256">
+<code class="descname">get_login_sha256</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_login_sha256"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_login_sha256" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns user login sha256</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_nat">
-<code class="descname">get_nat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_nat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_nat" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_nat">
+<code class="descname">get_nat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_nat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_nat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns nationality</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_password">
-<code class="descname">get_password</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_password" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_password">
+<code class="descname">get_password</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_password" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns password</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_phone">
-<code class="descname">get_phone</code><span class="sig-paren">(</span><em>strip_parentheses=False</em>, <em>strip_hyphens=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_phone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_phone" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_phone">
+<code class="descname">get_phone</code><span class="sig-paren">(</span><em>strip_parentheses=False</em>, <em>strip_hyphens=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_phone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_phone" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns phone number as a string in the format ‘(###)-###-####’</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -433,8 +435,8 @@ instead of connecting once for each user and increasing load on both ends.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_picture">
-<code class="descname">get_picture</code><span class="sig-paren">(</span><em>size='large'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_picture"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_picture" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_picture">
+<code class="descname">get_picture</code><span class="sig-paren">(</span><em>size='large'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_picture"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_picture" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns url to a .jpg of the generated user</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -447,14 +449,14 @@ instead of connecting once for each user and increasing load on both ends.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_postcode">
-<code class="descname">get_postcode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_postcode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_postcode" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_postcode">
+<code class="descname">get_postcode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_postcode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_postcode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns post code</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_registered">
-<code class="descname">get_registered</code><span class="sig-paren">(</span><em>parse_time=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_registered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_registered" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_registered">
+<code class="descname">get_registered</code><span class="sig-paren">(</span><em>parse_time=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_registered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_registered" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns registration date as a string in the format ‘%Y-%m-%d %H:%M:%S’</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -467,8 +469,8 @@ instead of connecting once for each user and increasing load on both ends.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_state">
-<code class="descname">get_state</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_state" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_state">
+<code class="descname">get_state</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_state" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns state</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -481,8 +483,8 @@ instead of connecting once for each user and increasing load on both ends.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_street">
-<code class="descname">get_street</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_street"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_street" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_street">
+<code class="descname">get_street</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_street"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_street" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns street address</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -495,14 +497,14 @@ instead of connecting once for each user and increasing load on both ends.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_username">
-<code class="descname">get_username</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_username"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_username" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_username">
+<code class="descname">get_username</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_username"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_username" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns username</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.randomuser.RandomUser.get_zipcode">
-<code class="descname">get_zipcode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser/randomuser.html#RandomUser.get_zipcode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.randomuser.RandomUser.get_zipcode" title="Permalink to this definition">¶</a></dt>
+<dt id="randomuser.RandomUser.get_zipcode">
+<code class="descname">get_zipcode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_zipcode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_zipcode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns zip code (wrapper for get_postcode())</p>
 </dd></dl>
 
@@ -552,7 +554,7 @@ instead of connecting once for each user and increasing load on both ends.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.1.0',
+            VERSION:'1.2.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

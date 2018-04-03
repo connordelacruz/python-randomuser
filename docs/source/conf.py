@@ -20,7 +20,7 @@ sys.path.insert(0, os.path.abspath('../../'))
 # -- Project information -----------------------------------------------------
 
 # For automatic versioning
-from randomuser.version import __version__
+from randomuser import __version__
 
 project = 'Python Random User Generator'
 copyright = '2018, Connor de la Cruz'
@@ -103,6 +103,7 @@ html_static_path = ['_static']
 #
 # html_sidebars = {}
 
+html_favicon = '_static/favicon.ico'
 
 # -- Options for HTMLHelp output ---------------------------------------------
 

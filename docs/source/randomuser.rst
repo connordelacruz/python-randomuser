@@ -1,7 +1,7 @@
 RandomUser class
 ================
 
-.. autoclass:: randomuser.randomuser.RandomUser
+.. autoclass:: randomuser.RandomUser
     :members:
     :undoc-members:
 
