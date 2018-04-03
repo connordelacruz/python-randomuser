@@ -1,6 +1,22 @@
 Python Random User Generator
 ============================
 
+|pypi|
+|license|
+|github|
+
+.. |pypi| image:: https://img.shields.io/pypi/v/randomuser.svg
+    :alt: PyPI
+    :target: https://pypi.python.org/pypi/randomuser
+
+.. |license| image:: https://img.shields.io/pypi/l/randomuser.svg
+    :alt: PyPI - License
+
+.. |github| image:: https://img.shields.io/badge/GitHub--green.svg?style=social&logo=github
+    :alt: GitHub
+    :target: https://github.com/connordelacruz/python-randomuser
+
+
 Python class for generating random user data using
 `randomuser.me <https://randomuser.me>`__ API.
 
