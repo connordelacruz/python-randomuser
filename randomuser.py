@@ -11,6 +11,9 @@ import re
 # Global Variables
 # ----------------------------------------------------------------
 
+# Python module version
+__version__ = '1.1.0'
+
 # Version of the random user API
 API_VERSION = '1.1'
 

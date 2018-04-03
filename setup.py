@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 # Get __version__
-with open('./randomuser/version.py') as f:
+with open('./randomuser.py') as f:
     exec(f.read())
 
 setup(name='randomuser',
