@@ -1,5 +1,9 @@
 from setuptools import setup, find_packages
 
+def readme():
+    with open('README.rst') as f:
+        return f.read()
+
 # Get __version__
 with open('./randomuser.py') as f:
     exec(f.read())
@@ -7,6 +11,7 @@ with open('./randomuser.py') as f:
 setup(name='randomuser',
       version=__version__,
       description='Python class for generating random user data using https://randomuser.me API',
+      long_description=readme(),
       url='http://connordelacruz.com/python-randomuser/',
       download_url='https://github.com/connordelacruz/python-randomuser/archive/{}.tar.gz'.format(__version__),
       author='Connor de la Cruz',
