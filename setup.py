@@ -5,7 +5,7 @@ def readme():
         return f.read()
 
 # Get __version__
-with open('./randomuser.py') as f:
+with open('randomuser.py') as f:
     exec(f.read())
 
 setup(name='randomuser',
