@@ -12,7 +12,7 @@ import re
 # ----------------------------------------------------------------
 
 # Python module version
-__version__ = '1.2.4'
+__version__ = '1.3.0'
 
 # Version of the random user API
 API_VERSION = '1.1'
