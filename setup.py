@@ -1,11 +1,14 @@
 from setuptools import setup, find_packages
+import os
+
+setup_dir = os.path.abspath(os.path.dirname(__file__))
 
 def readme():
-    with open('README.rst') as f:
+    with open(os.path.join(setup_dir, 'README.rst')) as f:
         return f.read()
 
 # Get __version__
-with open('randomuser.py') as f:
+with open(os.path.join(setup_dir, 'randomuser.py')) as f:
     exec(f.read())
 
 setup(name='randomuser',
