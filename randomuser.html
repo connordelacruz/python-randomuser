@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>RandomUser class &mdash; Python Random User Generator 1.4.0 documentation</title>
+  <title>RandomUser class &mdash; Python Random User Generator 1.5.0 documentation</title>
   
 
   
@@ -27,25 +27,18 @@
   
 
   
-  
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Python Random User Generator 1.4.0 documentation" href="index.html"/>
-        <link rel="prev" title="Python Random User Generator" href="index.html"/> 
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Python Random User Generator" href="index.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -67,7 +60,7 @@
             
             
               <div class="version">
-                1.4
+                1.5
               </div>
             
           
@@ -105,7 +98,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Python Random User Generator</a>
@@ -113,9 +106,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -171,9 +165,17 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>get_params</strong> – (Optional) Dictionary mapping query parameter names to their values. See <a class="reference external" href="https://randomuser.me/documentation">https://randomuser.me/documentation</a> for details on parameters.</li>
-<li><strong>user_data</strong> – (Optional) If specified, this _data will be used instead of querying the API for user _data. Use in instances where the user _data has already been generated (e.g. restoring user _data, creating multiple users with single call to API using the ‘results’ parameter)</li>
-<li><strong>api_info</strong> – (Optional) If the user is being generated with the user_data parameter, the _info variable will be set to this. Otherwise, it will be ignored when generating a random user.</li>
+<li><strong>get_params</strong> – (Optional) Dictionary mapping query parameter names
+to their values. See <a class="reference external" href="https://randomuser.me/documentation">https://randomuser.me/documentation</a> for
+details on parameters.</li>
+<li><strong>user_data</strong> – (Optional) If specified, this _data will be used
+instead of querying the API for user _data. Use in instances where
+the user _data has already been generated (e.g. restoring user
+_data, creating multiple users with single call to API using the
+‘results’ parameter)</li>
+<li><strong>api_info</strong> – (Optional) If the user is being generated with the
+user_data parameter, the _info variable will be set to this.
+Otherwise, it will be ignored when generating a random user.</li>
 </ul>
 </td>
 </tr>
@@ -181,43 +183,10 @@
 </table>
 </dd></dl>
 
-<dl class="exception">
-<dt id="randomuser.RandomUser.APIError">
-<em class="property">exception </em><code class="descname">APIError</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.APIError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.APIError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Exception to raise when the API query returns an error</p>
-<p>Documentation on API errors: <a class="reference external" href="https://randomuser.me/documentation#errors">https://randomuser.me/documentation#errors</a></p>
-</dd></dl>
-
-<dl class="class">
-<dt id="randomuser.RandomUser.Info">
-<em class="property">class </em><code class="descname">Info</code><a class="reference internal" href="_modules/randomuser.html#RandomUser.Info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.Info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Constants for _info dictionary keys</p>
-<dl class="attribute">
-<dt id="randomuser.RandomUser.Info.PAGE">
-<code class="descname">PAGE</code><em class="property"> = 'page'</em><a class="headerlink" href="#randomuser.RandomUser.Info.PAGE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="randomuser.RandomUser.Info.RESULTS">
-<code class="descname">RESULTS</code><em class="property"> = 'results'</em><a class="headerlink" href="#randomuser.RandomUser.Info.RESULTS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="randomuser.RandomUser.Info.SEED">
-<code class="descname">SEED</code><em class="property"> = 'seed'</em><a class="headerlink" href="#randomuser.RandomUser.Info.SEED" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="randomuser.RandomUser.Info.VERSION">
-<code class="descname">VERSION</code><em class="property"> = 'version'</em><a class="headerlink" href="#randomuser.RandomUser.Info.VERSION" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 <dl class="class">
 <dt id="randomuser.RandomUser.PictureSize">
 <em class="property">class </em><code class="descname">PictureSize</code><a class="reference internal" href="_modules/randomuser.html#RandomUser.PictureSize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.PictureSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Constants for size parameter in get_picture()</p>
+<dd><p>Constants for size parameter in <a class="reference internal" href="#randomuser.RandomUser.get_picture" title="randomuser.RandomUser.get_picture"><code class="xref py py-meth docutils literal notranslate"><span class="pre">RandomUser.get_picture()</span></code></a></p>
 <dl class="attribute">
 <dt id="randomuser.RandomUser.PictureSize.LARGE">
 <code class="descname">LARGE</code><em class="property"> = 'large'</em><a class="headerlink" href="#randomuser.RandomUser.PictureSize.LARGE" title="Permalink to this definition">¶</a></dt>
@@ -235,19 +204,217 @@
 
 </dd></dl>
 
-<dl class="staticmethod">
-<dt id="randomuser.RandomUser.generate_users">
-<em class="property">static </em><code class="descname">generate_users</code><span class="sig-paren">(</span><em>get_params=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.generate_users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.generate_users" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a list containing the specified amount of randomly generated users.</p>
-<p>The Random User Generator API can generate multiple users in a single query
-instead of connecting once for each user and increasing load on both ends.</p>
+<dl class="class">
+<dt id="randomuser.RandomUser.Info">
+<em class="property">class </em><code class="descname">Info</code><a class="reference internal" href="_modules/randomuser.html#RandomUser.Info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.Info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constants for <a class="reference internal" href="#randomuser.RandomUser._info" title="randomuser.RandomUser._info"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RandomUser._info</span></code></a> dictionary keys</p>
+<dl class="attribute">
+<dt id="randomuser.RandomUser.Info.SEED">
+<code class="descname">SEED</code><em class="property"> = 'seed'</em><a class="headerlink" href="#randomuser.RandomUser.Info.SEED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="randomuser.RandomUser.Info.RESULTS">
+<code class="descname">RESULTS</code><em class="property"> = 'results'</em><a class="headerlink" href="#randomuser.RandomUser.Info.RESULTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="randomuser.RandomUser.Info.PAGE">
+<code class="descname">PAGE</code><em class="property"> = 'page'</em><a class="headerlink" href="#randomuser.RandomUser.Info.PAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="randomuser.RandomUser.Info.VERSION">
+<code class="descname">VERSION</code><em class="property"> = 'version'</em><a class="headerlink" href="#randomuser.RandomUser.Info.VERSION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="randomuser.RandomUser.APIError">
+<em class="property">exception </em><code class="descname">APIError</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.APIError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.APIError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception to raise when the API query returns an error</p>
+<p>Documentation on API errors: <a class="reference external" href="https://randomuser.me/documentation#errors">https://randomuser.me/documentation#errors</a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="randomuser.RandomUser._data">
+<code class="descname">_data</code><em class="property"> = {}</em><a class="headerlink" href="#randomuser.RandomUser._data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary where the random user data will be stored</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="randomuser.RandomUser._info">
+<code class="descname">_info</code><em class="property"> = {}</em><a class="headerlink" href="#randomuser.RandomUser._info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary where info section of results will be stored</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser._generate_user">
+<code class="descname">_generate_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser._generate_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser._generate_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the randomuser.me API and store results in _data and _info</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_first_name">
+<code class="descname">get_first_name</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_first_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_first_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns first name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capitalize</strong> – (Default = True) Capitalize first letter if True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_last_name">
+<code class="descname">get_last_name</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_last_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_last_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns last name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capitalize</strong> – (Default = True) Capitalize first letter if True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_full_name">
+<code class="descname">get_full_name</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_full_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_full_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns first and last name separated by a space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capitalize</strong> – (Default = True) Capitalize first letter of each
+name if True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_gender">
+<code class="descname">get_gender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_gender"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_gender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns gender</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_dob">
+<code class="descname">get_dob</code><span class="sig-paren">(</span><em>parse_time=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_dob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_dob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns date of birth as a string in the format ‘%Y-%m-%d %H:%M:%S’</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parse_time</strong> – (Default = False) If True, parse date of birth
+string using time.strptime() and return the results instead of a
+string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_nat">
+<code class="descname">get_nat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_nat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_nat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns nationality</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_street">
+<code class="descname">get_street</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_street"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_street" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns street address</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capitalize</strong> – (Default = True) Capitalize first letter of words if
+True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_city">
+<code class="descname">get_city</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_city"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_city" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns city</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capitalize</strong> – (Default = True) Capitalize first letter of words if
+True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_state">
+<code class="descname">get_state</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns state</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capitalize</strong> – (Default = True) Capitalize first letter of words if
+True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_postcode">
+<code class="descname">get_postcode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_postcode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_postcode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns post code</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_zipcode">
+<code class="descname">get_zipcode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_zipcode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_zipcode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns zip code (wrapper for get_postcode())</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser._format_phone_number">
+<code class="descname">_format_phone_number</code><span class="sig-paren">(</span><em>phone_string</em>, <em>strip_parentheses=True</em>, <em>strip_hyphens=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser._format_phone_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser._format_phone_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a string representation of a phone number and strips
+characters based on parameter values</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>amount</strong> – The number of users to generate.</li>
-<li><strong>get_params</strong> – (Optional) Dictionary mapping query parameter names to their values. See <a class="reference external" href="https://randomuser.me/documentation">https://randomuser.me/documentation</a> for details on parameters.</li>
+<li><strong>phone_string</strong> – The phone number as a string</li>
+<li><strong>strip_parentheses</strong> – (Default = True) Remove ‘(‘ and ‘)’
+characters if True</li>
+<li><strong>strip_hyphens</strong> – (Default = True) Remove ‘-‘ characters if True</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_phone">
+<code class="descname">get_phone</code><span class="sig-paren">(</span><em>strip_parentheses=False</em>, <em>strip_hyphens=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_phone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_phone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns phone number as a string in the format ‘(###)-###-####’</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>strip_parentheses</strong> – (Default = False) Omit parentheses if True</li>
+<li><strong>strip_hyphens</strong> – (Default = False) Omit hyphens if True</li>
 </ul>
 </td>
 </tr>
@@ -274,122 +441,49 @@ instead of connecting once for each user and increasing load on both ends.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.RandomUser.get_city">
-<code class="descname">get_city</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_city"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_city" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns city</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capitalize</strong> – (Default = True) Capitalize first letter of words if True</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="randomuser.RandomUser.get_dob">
-<code class="descname">get_dob</code><span class="sig-paren">(</span><em>parse_time=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_dob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_dob" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns date of birth as a string in the format ‘%Y-%m-%d %H:%M:%S’</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parse_time</strong> – (Default = False) If True, parse date of birth string using time.strptime() and return the results instead of a string</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
 <dt id="randomuser.RandomUser.get_email">
 <code class="descname">get_email</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_email"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_email" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns email address</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.RandomUser.get_first_name">
-<code class="descname">get_first_name</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_first_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_first_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns first name</p>
+<dt id="randomuser.RandomUser.get_username">
+<code class="descname">get_username</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_username"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns username</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_password">
+<code class="descname">get_password</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns password</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_registered">
+<code class="descname">get_registered</code><span class="sig-paren">(</span><em>parse_time=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_registered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_registered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns registration date as a string in the format
+‘%Y-%m-%d %H:%M:%S’</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capitalize</strong> – (Default = True) Capitalize first letter if True</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parse_time</strong> – (Default = False) If True, parse date string using
+time.strptime() and return the results instead of a string</td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="method">
-<dt id="randomuser.RandomUser.get_full_name">
-<code class="descname">get_full_name</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_full_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_full_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns first and last name separated by a space</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capitalize</strong> – (Default = True) Capitalize first letter of each name if True</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="randomuser.RandomUser.get_gender">
-<code class="descname">get_gender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_gender"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_gender" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns gender</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="randomuser.RandomUser.get_id">
-<code class="descname">get_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a dictionary mapping ‘type’ to ID type and ‘number’ to ID number</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="randomuser.RandomUser.get_id_number">
-<code class="descname">get_id_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_id_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_id_number" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the ID number</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="randomuser.RandomUser.get_id_type">
-<code class="descname">get_id_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_id_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_id_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the ID type</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="randomuser.RandomUser.get_info">
-<code class="descname">get_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a dictionary with information about the API query</p>
-<p>Keys for the info dictionary are stored as constants in Info subclass.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="randomuser.RandomUser.get_last_name">
-<code class="descname">get_last_name</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_last_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_last_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns last name</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capitalize</strong> – (Default = True) Capitalize first letter if True</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="randomuser.RandomUser.get_login_md5">
-<code class="descname">get_login_md5</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_login_md5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_login_md5" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns user login md5</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="randomuser.RandomUser.get_login_salt">
 <code class="descname">get_login_salt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_login_salt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_login_salt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns user login salt</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_login_md5">
+<code class="descname">get_login_md5</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_login_md5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_login_md5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns user login md5</p>
 </dd></dl>
 
 <dl class="method">
@@ -405,33 +499,22 @@ instead of connecting once for each user and increasing load on both ends.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.RandomUser.get_nat">
-<code class="descname">get_nat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_nat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_nat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns nationality</p>
+<dt id="randomuser.RandomUser.get_id_type">
+<code class="descname">get_id_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_id_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_id_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the ID type</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.RandomUser.get_password">
-<code class="descname">get_password</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_password" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns password</p>
+<dt id="randomuser.RandomUser.get_id_number">
+<code class="descname">get_id_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_id_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_id_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the ID number</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.RandomUser.get_phone">
-<code class="descname">get_phone</code><span class="sig-paren">(</span><em>strip_parentheses=False</em>, <em>strip_hyphens=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_phone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_phone" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns phone number as a string in the format ‘(###)-###-####’</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>strip_parentheses</strong> – (Default = False) Omit parentheses if True</li>
-<li><strong>strip_hyphens</strong> – (Default = False) Omit hyphens if True</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
+<dt id="randomuser.RandomUser.get_id">
+<code class="descname">get_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary mapping ‘type’ to ID type and ‘number’ to ID
+number</p>
 </dd></dl>
 
 <dl class="method">
@@ -442,70 +525,59 @@ instead of connecting once for each user and increasing load on both ends.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> – (Default = PictureSize.LARGE) The size of picture to return the url for. Size values are stored as constants in PictureSize subclass.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> – (Default = <a class="reference internal" href="#randomuser.RandomUser.PictureSize.LARGE" title="randomuser.RandomUser.PictureSize.LARGE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">PictureSize.LARGE</span></code></a>) The size of picture
+to return the url for. Size values are stored as constants in
+<a class="reference internal" href="#randomuser.RandomUser.PictureSize" title="randomuser.RandomUser.PictureSize"><code class="xref py py-class docutils literal notranslate"><span class="pre">PictureSize</span></code></a> nested class.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.RandomUser.get_postcode">
-<code class="descname">get_postcode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_postcode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_postcode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns post code</p>
+<dt id="randomuser.RandomUser.get_info">
+<code class="descname">get_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary with information about the API query</p>
+<p>Keys for the info dictionary are stored as constants in <a class="reference internal" href="#randomuser.RandomUser.Info" title="randomuser.RandomUser.Info"><code class="xref py py-class docutils literal notranslate"><span class="pre">Info</span></code></a>
+nested class.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="randomuser.RandomUser.get_registered">
-<code class="descname">get_registered</code><span class="sig-paren">(</span><em>parse_time=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_registered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_registered" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns registration date as a string in the format ‘%Y-%m-%d %H:%M:%S’</p>
+<dt id="randomuser.RandomUser._parse_time">
+<code class="descname">_parse_time</code><span class="sig-paren">(</span><em>date_string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser._parse_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser._parse_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses the date string format returned by the API and returns the
+time tuple result of time.strptime()</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parse_time</strong> – (Default = False) If True, parse date string using time.strptime() and return the results instead of a string</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>date_string</strong> – The date string in the format ‘%Y-%m-%d %H:%M:%S’</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
-<dl class="method">
-<dt id="randomuser.RandomUser.get_state">
-<code class="descname">get_state</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_state" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns state</p>
+<dl class="staticmethod">
+<dt id="randomuser.RandomUser.generate_users">
+<em class="property">static </em><code class="descname">generate_users</code><span class="sig-paren">(</span><em>amount</em>, <em>get_params=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.generate_users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.generate_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list containing the specified amount of randomly generated
+users.</p>
+<p>The Random User Generator API can generate multiple users in a single
+query instead of connecting once for each user and increasing load on
+both ends.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capitalize</strong> – (Default = True) Capitalize first letter of words if True</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>amount</strong> – The number of users to generate.</li>
+<li><strong>get_params</strong> – (Optional) Dictionary mapping query parameter names
+to their values. See <a class="reference external" href="https://randomuser.me/documentation">https://randomuser.me/documentation</a> for
+details on parameters.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="method">
-<dt id="randomuser.RandomUser.get_street">
-<code class="descname">get_street</code><span class="sig-paren">(</span><em>capitalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_street"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_street" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns street address</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capitalize</strong> – (Default = True) Capitalize first letter of words if True</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="randomuser.RandomUser.get_username">
-<code class="descname">get_username</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_username"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_username" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns username</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="randomuser.RandomUser.get_zipcode">
-<code class="descname">get_zipcode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_zipcode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_zipcode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns zip code (wrapper for get_postcode())</p>
 </dd></dl>
 
 </dd></dl>
@@ -514,9 +586,7 @@ instead of connecting once for each user and increasing load on both ends.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -536,7 +606,7 @@ instead of connecting once for each user and increasing load on both ends.</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -554,7 +624,8 @@ instead of connecting once for each user and increasing load on both ends.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.4.0',
+            VERSION:'1.5.0',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -564,6 +635,7 @@ instead of connecting once for each user and increasing load on both ends.</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
 
   
 
@@ -572,14 +644,13 @@ instead of connecting once for each user and increasing load on both ends.</p>
     <script type="text/javascript" src="_static/js/theme.js"></script>
   
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
