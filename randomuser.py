@@ -12,8 +12,7 @@ import re
 # ----------------------------------------------------------------
 
 # Python module version
-# TODO: 1.5.0
-__version__ = '1.4.0'
+__version__ = '1.5.0'
 
 # Version of the random user API
 API_VERSION = '1.2'
@@ -25,21 +24,21 @@ URL = 'https://randomuser.me/api/{}/'.format(API_VERSION)
 # ----------------------------------------------------------------
 
 class RandomUser:
-    #: Dictionary where the random user _data will be stored
+    #: Dictionary where the random user data will be stored
     _data = {}
-    #: Dictionary where _info section of results will be stored
+    #: Dictionary where info section of results will be stored
     _info = {}
 
     # Constants
 
     class PictureSize:
-        """Constants for size parameter in get_picture()"""
+        """Constants for size parameter in :meth:`RandomUser.get_picture()`"""
         LARGE = 'large'
         MEDIUM = 'medium'
         THUMBNAIL = 'thumbnail'
 
     class Info:
-        """Constants for _info dictionary keys"""
+        """Constants for :attr:`RandomUser._info` dictionary keys"""
         SEED = 'seed'
         RESULTS = 'results'
         PAGE = 'page'
