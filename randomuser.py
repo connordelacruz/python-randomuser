@@ -12,10 +12,11 @@ import re
 # ----------------------------------------------------------------
 
 # Python module version
+# TODO: 1.5.0
 __version__ = '1.4.0'
 
 # Version of the random user API
-API_VERSION = '1.1'
+API_VERSION = '1.2'
 
 URL = 'https://randomuser.me/api/{}/'.format(API_VERSION)
 
@@ -23,21 +24,21 @@ URL = 'https://randomuser.me/api/{}/'.format(API_VERSION)
 # Classes
 # ----------------------------------------------------------------
 
-class RandomUser(object):
-    # Dictionary where the random user _data will be stored
+class RandomUser:
+    #: Dictionary where the random user _data will be stored
     _data = {}
-    # Dictionary where _info section of results will be stored
+    #: Dictionary where _info section of results will be stored
     _info = {}
 
     # Constants
 
-    class PictureSize(object):
+    class PictureSize:
         """Constants for size parameter in get_picture()"""
         LARGE = 'large'
         MEDIUM = 'medium'
         THUMBNAIL = 'thumbnail'
 
-    class Info(object):
+    class Info:
         """Constants for _info dictionary keys"""
         SEED = 'seed'
         RESULTS = 'results'
@@ -53,16 +54,26 @@ class RandomUser(object):
         """
 
         def __init__(self, message):
-            super().__init__('API returned an error: {}'.format(message))
+            super().__init__(
+                'randomuser.me API returned an error: {}'.format(message)
+            )
 
     # Functions
 
     def __init__(self, get_params=None, user_data=None, api_info=None):
         """Initialize RandomUser object
 
-        :param get_params: (Optional) Dictionary mapping query parameter names to their values. See https://randomuser.me/documentation for details on parameters.
-        :param user_data: (Optional) If specified, this _data will be used instead of querying the API for user _data. Use in instances where the user _data has already been generated (e.g. restoring user _data, creating multiple users with single call to API using the 'results' parameter)
-        :param api_info: (Optional) If the user is being generated with the user_data parameter, the _info variable will be set to this. Otherwise, it will be ignored when generating a random user.
+        :param get_params: (Optional) Dictionary mapping query parameter names
+            to their values. See https://randomuser.me/documentation for
+            details on parameters.
+        :param user_data: (Optional) If specified, this _data will be used
+            instead of querying the API for user _data. Use in instances where
+            the user _data has already been generated (e.g. restoring user
+            _data, creating multiple users with single call to API using the
+            'results' parameter)
+        :param api_info: (Optional) If the user is being generated with the
+            user_data parameter, the _info variable will be set to this.
+            Otherwise, it will be ignored when generating a random user.
         """
         global URL
         if user_data is not None:
@@ -75,7 +86,7 @@ class RandomUser(object):
             self._generate_user()
 
     def _generate_user(self):
-        """Query the randomuser.me API and store parsed results in _data and _info"""
+        """Query the randomuser.me API and store results in _data and _info"""
         results = json.loads(request.urlopen(self.request_url).read())
         if 'error' in results:
             raise RandomUser.APIError(results['error'])
@@ -104,7 +115,8 @@ class RandomUser(object):
     def get_full_name(self, capitalize=True):
         """Returns first and last name separated by a space
 
-        :param capitalize: (Default = True) Capitalize first letter of each name if True
+        :param capitalize: (Default = True) Capitalize first letter of each
+            name if True
         """
         first_name = self.get_first_name(capitalize)
         last_name = self.get_last_name(capitalize)
@@ -118,7 +130,9 @@ class RandomUser(object):
     def get_dob(self, parse_time=False):
         """Returns date of birth as a string in the format '%Y-%m-%d %H:%M:%S'
 
-        :param parse_time: (Default = False) If True, parse date of birth string using time.strptime() and return the results instead of a string
+        :param parse_time: (Default = False) If True, parse date of birth
+            string using time.strptime() and return the results instead of a
+            string
         """
         dob = self._data['dob']
         if parse_time:
@@ -135,7 +149,8 @@ class RandomUser(object):
     def get_street(self, capitalize=True):
         """Returns street address
 
-        :param capitalize: (Default = True) Capitalize first letter of words if True
+        :param capitalize: (Default = True) Capitalize first letter of words if
+            True
         """
         street = self._data['location']['street']
         return street.title() if capitalize else street
@@ -143,7 +158,8 @@ class RandomUser(object):
     def get_city(self, capitalize=True):
         """Returns city
 
-        :param capitalize: (Default = True) Capitalize first letter of words if True
+        :param capitalize: (Default = True) Capitalize first letter of words if
+            True
         """
         city = self._data['location']['city']
         return city.title() if capitalize else city
@@ -151,7 +167,8 @@ class RandomUser(object):
     def get_state(self, capitalize=True):
         """Returns state
 
-        :param capitalize: (Default = True) Capitalize first letter of words if True
+        :param capitalize: (Default = True) Capitalize first letter of words if
+            True
         """
         state = self._data['location']['state']
         return state.title() if capitalize else state
@@ -167,11 +184,14 @@ class RandomUser(object):
     # Contact
     # --------------------------------
 
-    def _format_phone_number(self, phone_string, strip_parentheses=True, strip_hyphens=True):
-        """Takes a string representation of a phone number and strips characters based on parameter values
+    def _format_phone_number(self, phone_string,
+                             strip_parentheses=True, strip_hyphens=True):
+        """Takes a string representation of a phone number and strips
+        characters based on parameter values
 
         :param phone_string: The phone number as a string
-        :param strip_parentheses: (Default = True) Remove '(' and ')' characters if True
+        :param strip_parentheses: (Default = True) Remove '(' and ')'
+            characters if True
         :param strip_hyphens: (Default = True) Remove '-' characters if True
         """
         if strip_parentheses:
@@ -186,7 +206,9 @@ class RandomUser(object):
         :param strip_parentheses: (Default = False) Omit parentheses if True
         :param strip_hyphens: (Default = False) Omit hyphens if True
         """
-        return self._format_phone_number(self._data['phone'], strip_parentheses, strip_hyphens)
+        return self._format_phone_number(self._data['phone'],
+                                         strip_parentheses=strip_parentheses,
+                                         strip_hyphens=strip_hyphens)
 
     def get_cell(self, strip_parentheses=False, strip_hyphens=False):
         """Returns cell phone number as a string in the format '(###)-###-####'
@@ -194,7 +216,9 @@ class RandomUser(object):
         :param strip_parentheses: (Default = False) Omit parentheses if True
         :param strip_hyphens: (Default = False) Omit hyphens if True
         """
-        return self._format_phone_number(self._data['cell'], strip_parentheses, strip_hyphens)
+        return self._format_phone_number(self._data['cell'],
+                                         strip_parentheses=strip_parentheses,
+                                         strip_hyphens=strip_hyphens)
 
     def get_email(self):
         """Returns email address"""
@@ -212,9 +236,11 @@ class RandomUser(object):
         return self._data['login']['password']
 
     def get_registered(self, parse_time=False):
-        """Returns registration date as a string in the format '%Y-%m-%d %H:%M:%S'
+        """Returns registration date as a string in the format
+        '%Y-%m-%d %H:%M:%S'
 
-        :param parse_time: (Default = False) If True, parse date string using time.strptime() and return the results instead of a string
+        :param parse_time: (Default = False) If True, parse date string using
+            time.strptime() and return the results instead of a string
         """
         registered = self._data['registered']
         if parse_time:
@@ -249,7 +275,8 @@ class RandomUser(object):
         return self._data['id']['value']
 
     def get_id(self):
-        """Returns a dictionary mapping 'type' to ID type and 'number' to ID number
+        """Returns a dictionary mapping 'type' to ID type and 'number' to ID
+        number
         """
         return {'type': self.get_id_type(), 'number': self.get_id_number()}
 
@@ -259,14 +286,17 @@ class RandomUser(object):
     def get_picture(self, size=PictureSize.LARGE):
         """Returns url to a .jpg of the generated user
 
-        :param size: (Default = PictureSize.LARGE) The size of picture to return the url for. Size values are stored as constants in PictureSize subclass.
+        :param size: (Default = :attr:`PictureSize.LARGE`) The size of picture
+            to return the url for. Size values are stored as constants in
+            :class:`PictureSize` nested class.
         """
         return self._data['picture'][size]
 
     def get_info(self):
         """Returns a dictionary with information about the API query
 
-        Keys for the info dictionary are stored as constants in Info subclass.
+        Keys for the info dictionary are stored as constants in :class:`Info`
+        nested class.
         """
         return self._info
 
@@ -274,7 +304,8 @@ class RandomUser(object):
     # --------------------------------
 
     def _parse_time(self, date_string):
-        """Parses the date string format returned by the API and returns the time tuple result of time.strptime()
+        """Parses the date string format returned by the API and returns the
+        time tuple result of time.strptime()
 
         :param date_string: The date string in the format '%Y-%m-%d %H:%M:%S'
         """
@@ -286,18 +317,23 @@ class RandomUser(object):
 
     @staticmethod
     def generate_users(amount, get_params=None):
-        """Returns a list containing the specified amount of randomly generated users.
+        """Returns a list containing the specified amount of randomly generated
+        users.
 
-        The Random User Generator API can generate multiple users in a single query
-        instead of connecting once for each user and increasing load on both ends.
+        The Random User Generator API can generate multiple users in a single
+        query instead of connecting once for each user and increasing load on
+        both ends.
 
         :param amount: The number of users to generate.
-        :param get_params: (Optional) Dictionary mapping query parameter names to their values. See https://randomuser.me/documentation for details on parameters.
+        :param get_params: (Optional) Dictionary mapping query parameter names
+            to their values. See https://randomuser.me/documentation for
+            details on parameters.
         """
         global URL
         if get_params is None:
             get_params = {}
-        # Max amount allowed is 5,000 (https://randomuser.me/documentation#multiple)
+        # Max amount allowed is 5,000
+        # (https://randomuser.me/documentation#multiple)
         get_params['results'] = amount if amount <= 5000 else 5000
         request_url = URL + '?' + urlencode(get_params)
         results = json.loads(request.urlopen(request_url).read())
@@ -309,3 +345,4 @@ class RandomUser(object):
             user = RandomUser(user_data=user_data, api_info=info)
             users.append(user)
         return users
+
