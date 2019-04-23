@@ -10,8 +10,6 @@ import re
 
 # Global Variables
 # ----------------------------------------------------------------
-# TODO: document
-# TODO: do these need to be global?
 
 # Python module version
 # TODO: 1.5.0
@@ -26,11 +24,10 @@ URL = 'https://randomuser.me/api/{}/'.format(API_VERSION)
 # Classes
 # ----------------------------------------------------------------
 
-# TODO: docstring
 class RandomUser:
-    # Dictionary where the random user _data will be stored
+    #: Dictionary where the random user _data will be stored
     _data = {}
-    # Dictionary where _info section of results will be stored
+    #: Dictionary where _info section of results will be stored
     _info = {}
 
     # Constants
@@ -318,7 +315,6 @@ class RandomUser:
     # Static Methods
     # --------------------------------
 
-    # TODO: classmethod?
     @staticmethod
     def generate_users(amount, get_params=None):
         """Returns a list containing the specified amount of randomly generated
