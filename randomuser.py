@@ -12,10 +12,11 @@ import re
 # ----------------------------------------------------------------
 
 # Python module version
+# TODO: 1.5.0
 __version__ = '1.4.0'
 
 # Version of the random user API
-API_VERSION = '1.1'
+API_VERSION = '1.2'
 
 URL = 'https://randomuser.me/api/{}/'.format(API_VERSION)
 
@@ -284,6 +285,7 @@ class RandomUser(object):
     # Static Methods
     # --------------------------------
 
+    # TODO: classmethod?
     @staticmethod
     def generate_users(amount, get_params=None):
         """Returns a list containing the specified amount of randomly generated users.
@@ -309,3 +311,4 @@ class RandomUser(object):
             user = RandomUser(user_data=user_data, api_info=info)
             users.append(user)
         return users
+
