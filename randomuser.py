@@ -140,7 +140,7 @@ class RandomUser:
         return dob
 
     def get_age(self):
-        # TODO: doc
+        """Returns the age of the user"""
         return self._data['dob']['age']
 
     def get_nat(self):
@@ -185,7 +185,14 @@ class RandomUser:
         """ Returns zip code (wrapper for get_postcode())"""
         return self.get_postcode()
 
-    # TODO: get coordinates and timezone
+    def get_coordinates(self):
+        """Returns a dictionary with keys 'longitude' and 'latitude' mapped to
+        their respective values
+        """
+        return self._data['location']['coordinates']
+
+    # TODO: def get_timezone(self)
+    # https://docs.python.org/3/library/datetime.html#timezone-objects
 
     # Contact
     # --------------------------------
@@ -254,7 +261,7 @@ class RandomUser:
         return registered
 
     def get_registered_age(self):
-        # TODO: doc
+        """Returns the age (in years) since registration date"""
         return self._data['registered']['age']
 
     def get_login_salt(self):
@@ -273,7 +280,9 @@ class RandomUser:
         """Returns user login sha256"""
         return self._data['login']['sha256']
 
-    # TODO: get_login_uuid(self)
+    def get_login_uuid(self):
+        """Returns user login uuid"""
+        return self._data['login']['sha256']
 
     # ID
     # --------------------------------
