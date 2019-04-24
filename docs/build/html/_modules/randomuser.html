@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>randomuser &mdash; Python Random User Generator 1.5.0 documentation</title>
+  <title>randomuser &mdash; Python Random User Generator 1.5.1 documentation</title>
   
 
   
@@ -163,7 +163,7 @@
 <span class="c1"># ----------------------------------------------------------------</span>
 
 <span class="c1"># Python module version</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;1.5.0&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;1.5.1&#39;</span>
 
 <span class="c1"># Version of the random user API</span>
 <span class="n">API_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.2&#39;</span>
@@ -278,16 +278,21 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="RandomUser.get_dob"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_dob">[docs]</a>    <span class="k">def</span> <span class="nf">get_dob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parse_time</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns date of birth as a string in the format &#39;%Y-%m-%d %H:%M:%S&#39;</span>
+        <span class="sd">&quot;&quot;&quot;Returns date of birth as a string in the format &#39;%Y-%m-%dT%H:%M:%SZ&#39;</span>
+<span class="sd">        (ISO 8601 standard)</span>
 
 <span class="sd">        :param parse_time: (Default = False) If True, parse date of birth</span>
 <span class="sd">            string using time.strptime() and return the results instead of a</span>
 <span class="sd">            string</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">dob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;dob&#39;</span><span class="p">]</span>
+        <span class="n">dob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;dob&#39;</span><span class="p">][</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">parse_time</span><span class="p">:</span>
             <span class="n">dob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_time</span><span class="p">(</span><span class="n">dob</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">dob</span></div>
+
+<div class="viewcode-block" id="RandomUser.get_age"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_age">[docs]</a>    <span class="k">def</span> <span class="nf">get_age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the age of the user&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;dob&#39;</span><span class="p">][</span><span class="s1">&#39;age&#39;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="RandomUser.get_nat"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_nat">[docs]</a>    <span class="k">def</span> <span class="nf">get_nat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns nationality&quot;&quot;&quot;</span>
@@ -330,6 +335,15 @@
 <div class="viewcode-block" id="RandomUser.get_zipcode"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_zipcode">[docs]</a>    <span class="k">def</span> <span class="nf">get_zipcode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns zip code (wrapper for get_postcode())&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_postcode</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="RandomUser.get_coordinates"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_coordinates">[docs]</a>    <span class="k">def</span> <span class="nf">get_coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a dictionary with keys &#39;longitude&#39; and &#39;latitude&#39; mapped to</span>
+<span class="sd">        their respective values</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span></div>
+
+    <span class="c1"># TODO: def get_timezone(self)</span>
+    <span class="c1"># https://docs.python.org/3/library/datetime.html#timezone-objects</span>
 
     <span class="c1"># Contact</span>
     <span class="c1"># --------------------------------</span>
@@ -387,15 +401,19 @@
 
 <div class="viewcode-block" id="RandomUser.get_registered"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_registered">[docs]</a>    <span class="k">def</span> <span class="nf">get_registered</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parse_time</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns registration date as a string in the format</span>
-<span class="sd">        &#39;%Y-%m-%d %H:%M:%S&#39;</span>
+<span class="sd">        &#39;%Y-%m-%dT%H:%M:%SZ&#39; (ISO 8601 standard)</span>
 
 <span class="sd">        :param parse_time: (Default = False) If True, parse date string using</span>
 <span class="sd">            time.strptime() and return the results instead of a string</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">registered</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;registered&#39;</span><span class="p">]</span>
+        <span class="n">registered</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;registered&#39;</span><span class="p">][</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">parse_time</span><span class="p">:</span>
             <span class="n">registered</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_time</span><span class="p">(</span><span class="n">registered</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">registered</span></div>
+
+<div class="viewcode-block" id="RandomUser.get_registered_age"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_registered_age">[docs]</a>    <span class="k">def</span> <span class="nf">get_registered_age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the age (in years) since registration date&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;registered&#39;</span><span class="p">][</span><span class="s1">&#39;age&#39;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="RandomUser.get_login_salt"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_login_salt">[docs]</a>    <span class="k">def</span> <span class="nf">get_login_salt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns user login salt&quot;&quot;&quot;</span>
@@ -411,6 +429,10 @@
 
 <div class="viewcode-block" id="RandomUser.get_login_sha256"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_login_sha256">[docs]</a>    <span class="k">def</span> <span class="nf">get_login_sha256</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns user login sha256&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;login&#39;</span><span class="p">][</span><span class="s1">&#39;sha256&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="RandomUser.get_login_uuid"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_login_uuid">[docs]</a>    <span class="k">def</span> <span class="nf">get_login_uuid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns user login uuid&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;login&#39;</span><span class="p">][</span><span class="s1">&#39;sha256&#39;</span><span class="p">]</span></div>
 
     <span class="c1"># ID</span>
@@ -457,9 +479,9 @@
         <span class="sd">&quot;&quot;&quot;Parses the date string format returned by the API and returns the</span>
 <span class="sd">        time tuple result of time.strptime()</span>
 
-<span class="sd">        :param date_string: The date string in the format &#39;%Y-%m-%d %H:%M:%S&#39;</span>
+<span class="sd">        :param date_string: The date string in the format &#39;%Y-%m-%dT%H:%M:%SZ&#39;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">date_format</span> <span class="o">=</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span>
+        <span class="n">date_format</span> <span class="o">=</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%SZ&#39;</span>
         <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="n">date_format</span><span class="p">)</span></div>
 
     <span class="c1"># Static Methods</span>
@@ -530,7 +552,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.5.0',
+            VERSION:'1.5.1',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
