@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>RandomUser class &mdash; Python Random User Generator 1.5.0 documentation</title>
+  <title>RandomUser class &mdash; Python Random User Generator 1.5.1 documentation</title>
   
 
   
@@ -307,7 +307,8 @@ name if True</td>
 <dl class="method">
 <dt id="randomuser.RandomUser.get_dob">
 <code class="descname">get_dob</code><span class="sig-paren">(</span><em>parse_time=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_dob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_dob" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns date of birth as a string in the format ‘%Y-%m-%d %H:%M:%S’</p>
+<dd><p>Returns date of birth as a string in the format ‘%Y-%m-%dT%H:%M:%SZ’
+(ISO 8601 standard)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -318,6 +319,12 @@ string</td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_age">
+<code class="descname">get_age</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_age"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_age" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the age of the user</p>
 </dd></dl>
 
 <dl class="method">
@@ -381,6 +388,13 @@ True</td>
 <dt id="randomuser.RandomUser.get_zipcode">
 <code class="descname">get_zipcode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_zipcode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_zipcode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns zip code (wrapper for get_postcode())</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_coordinates">
+<code class="descname">get_coordinates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_coordinates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary with keys ‘longitude’ and ‘latitude’ mapped to
+their respective values</p>
 </dd></dl>
 
 <dl class="method">
@@ -462,7 +476,7 @@ characters if True</li>
 <dt id="randomuser.RandomUser.get_registered">
 <code class="descname">get_registered</code><span class="sig-paren">(</span><em>parse_time=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_registered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_registered" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns registration date as a string in the format
-‘%Y-%m-%d %H:%M:%S’</p>
+‘%Y-%m-%dT%H:%M:%SZ’ (ISO 8601 standard)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -472,6 +486,12 @@ time.strptime() and return the results instead of a string</td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_registered_age">
+<code class="descname">get_registered_age</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_registered_age"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_registered_age" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the age (in years) since registration date</p>
 </dd></dl>
 
 <dl class="method">
@@ -496,6 +516,12 @@ time.strptime() and return the results instead of a string</td>
 <dt id="randomuser.RandomUser.get_login_sha256">
 <code class="descname">get_login_sha256</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_login_sha256"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_login_sha256" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns user login sha256</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="randomuser.RandomUser.get_login_uuid">
+<code class="descname">get_login_uuid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/randomuser.html#RandomUser.get_login_uuid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#randomuser.RandomUser.get_login_uuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns user login uuid</p>
 </dd></dl>
 
 <dl class="method">
@@ -550,7 +576,7 @@ time tuple result of time.strptime()</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>date_string</strong> – The date string in the format ‘%Y-%m-%d %H:%M:%S’</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>date_string</strong> – The date string in the format ‘%Y-%m-%dT%H:%M:%SZ’</td>
 </tr>
 </tbody>
 </table>
@@ -624,7 +650,7 @@ details on parameters.</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.5.0',
+            VERSION:'1.5.1',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
