@@ -127,16 +127,21 @@ class RandomUser:
         return self._data['gender']
 
     def get_dob(self, parse_time=False):
-        """Returns date of birth as a string in the format '%Y-%m-%d %H:%M:%S'
+        """Returns date of birth as a string in the format '%Y-%m-%dT%H:%M:%SZ'
+        (ISO 8601 standard)
 
         :param parse_time: (Default = False) If True, parse date of birth
             string using time.strptime() and return the results instead of a
             string
         """
-        dob = self._data['dob']
+        dob = self._data['dob']['date']
         if parse_time:
             dob = self._parse_time(dob)
         return dob
+
+    def get_age(self):
+        """Returns the age of the user"""
+        return self._data['dob']['age']
 
     def get_nat(self):
         """Returns nationality"""
@@ -179,6 +184,15 @@ class RandomUser:
     def get_zipcode(self):
         """ Returns zip code (wrapper for get_postcode())"""
         return self.get_postcode()
+
+    def get_coordinates(self):
+        """Returns a dictionary with keys 'longitude' and 'latitude' mapped to
+        their respective values
+        """
+        return self._data['location']['coordinates']
+
+    # TODO: def get_timezone(self)
+    # https://docs.python.org/3/library/datetime.html#timezone-objects
 
     # Contact
     # --------------------------------
@@ -236,15 +250,19 @@ class RandomUser:
 
     def get_registered(self, parse_time=False):
         """Returns registration date as a string in the format
-        '%Y-%m-%d %H:%M:%S'
+        '%Y-%m-%dT%H:%M:%SZ' (ISO 8601 standard)
 
         :param parse_time: (Default = False) If True, parse date string using
             time.strptime() and return the results instead of a string
         """
-        registered = self._data['registered']
+        registered = self._data['registered']['date']
         if parse_time:
             registered = self._parse_time(registered)
         return registered
+
+    def get_registered_age(self):
+        """Returns the age (in years) since registration date"""
+        return self._data['registered']['age']
 
     def get_login_salt(self):
         """Returns user login salt"""
@@ -260,6 +278,10 @@ class RandomUser:
 
     def get_login_sha256(self):
         """Returns user login sha256"""
+        return self._data['login']['sha256']
+
+    def get_login_uuid(self):
+        """Returns user login uuid"""
         return self._data['login']['sha256']
 
     # ID
@@ -306,9 +328,9 @@ class RandomUser:
         """Parses the date string format returned by the API and returns the
         time tuple result of time.strptime()
 
-        :param date_string: The date string in the format '%Y-%m-%d %H:%M:%S'
+        :param date_string: The date string in the format '%Y-%m-%dT%H:%M:%SZ'
         """
-        date_format = '%Y-%m-%d %H:%M:%S'
+        date_format = '%Y-%m-%dT%H:%M:%SZ'
         return time.strptime(date_string, date_format)
 
     # Static Methods
