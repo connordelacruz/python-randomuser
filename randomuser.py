@@ -184,6 +184,15 @@ class RandomUser:
         state = self._data['location']['state']
         return state.lower() if not capitalize else state
 
+    def get_country(self, capitalize=True):
+        """Returns country
+
+        :param capitalize: (Default = True) Capitalize first letter of words if
+            True
+        """
+        country = self._data['location']['country']
+        return country.lower() if not capitalize else country
+
     def get_postcode(self):
         """Returns post code"""
         return self._data['location']['postcode']
