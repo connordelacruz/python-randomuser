@@ -12,10 +12,10 @@ import re
 # ----------------------------------------------------------------
 
 # Python module version
-__version__ = '1.5.1'
+__version__ = '1.6'
 
 # Version of the random user API
-API_VERSION = '1.2'
+API_VERSION = '1.3'
 
 URL = 'https://randomuser.me/api/{}/'.format(API_VERSION)
 
@@ -101,7 +101,7 @@ class RandomUser:
         :param capitalize: (Default = True) Capitalize first letter if True
         """
         first_name = self._data['name']['first']
-        return first_name.title() if capitalize else first_name
+        return first_name.lower() if not capitalize else first_name
 
     def get_last_name(self, capitalize=True):
         """Returns last name
@@ -109,7 +109,7 @@ class RandomUser:
         :param capitalize: (Default = True) Capitalize first letter if True
         """
         last_name = self._data['name']['last']
-        return last_name.title() if capitalize else last_name
+        return last_name.lower() if not capitalize else last_name
 
     def get_full_name(self, capitalize=True):
         """Returns first and last name separated by a space
@@ -150,14 +150,21 @@ class RandomUser:
     # Location
     # --------------------------------
 
-    def get_street(self, capitalize=True):
+    def get_street(self, capitalize=True, split_number_name=False):
         """Returns street address
 
         :param capitalize: (Default = True) Capitalize first letter of words if
             True
+        :param split_number_name: (Default = False) If False, return the full
+            street address as a string. If True, return a dictionary with keys
+            'number' and 'name' containing the street number and name,
+            respectively
         """
-        street = self._data['location']['street']
-        return street.title() if capitalize else street
+        number, name = self._data['location']['street']['number'], self._data['location']['street']['name']
+        if not capitalize:
+            name = name.lower()
+        street = { 'number': number, 'name': name } if split_number_name else '{} {}'.format(number, name)
+        return street
 
     def get_city(self, capitalize=True):
         """Returns city
@@ -166,7 +173,7 @@ class RandomUser:
             True
         """
         city = self._data['location']['city']
-        return city.title() if capitalize else city
+        return city.lower() if not capitalize else city
 
     def get_state(self, capitalize=True):
         """Returns state
@@ -175,7 +182,16 @@ class RandomUser:
             True
         """
         state = self._data['location']['state']
-        return state.title() if capitalize else state
+        return state.lower() if not capitalize else state
+
+    def get_country(self, capitalize=True):
+        """Returns country
+
+        :param capitalize: (Default = True) Capitalize first letter of words if
+            True
+        """
+        country = self._data['location']['country']
+        return country.lower() if not capitalize else country
 
     def get_postcode(self):
         """Returns post code"""

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>randomuser &mdash; Python Random User Generator 1.5.1 documentation</title>
+  <title>randomuser &mdash; Python Random User Generator 1.6 documentation</title>
   
 
   
@@ -19,33 +19,34 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -59,7 +60,7 @@
             
             
               <div class="version">
-                1.5
+                1.6
               </div>
             
           
@@ -153,8 +154,8 @@
 
 <span class="c1"># Imports</span>
 <span class="c1"># ----------------------------------------------------------------</span>
-<span class="kn">from</span> <span class="nn">urllib</span> <span class="k">import</span> <span class="n">request</span><span class="p">,</span> <span class="n">error</span>
-<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="k">import</span> <span class="n">urlencode</span>
+<span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">request</span><span class="p">,</span> <span class="n">error</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlencode</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">re</span>
@@ -163,10 +164,10 @@
 <span class="c1"># ----------------------------------------------------------------</span>
 
 <span class="c1"># Python module version</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;1.5.1&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;1.6&#39;</span>
 
 <span class="c1"># Version of the random user API</span>
-<span class="n">API_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.2&#39;</span>
+<span class="n">API_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.3&#39;</span>
 
 <span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://randomuser.me/api/</span><span class="si">{}</span><span class="s1">/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">API_VERSION</span><span class="p">)</span>
 
@@ -203,14 +204,14 @@
 <span class="sd">        Documentation on API errors: https://randomuser.me/documentation#errors</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
                 <span class="s1">&#39;randomuser.me API returned an error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
             <span class="p">)</span></div>
 
     <span class="c1"># Functions</span>
 
-<div class="viewcode-block" id="RandomUser.__init__"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">get_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">user_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">api_info</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="RandomUser.__init__"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">get_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">user_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">api_info</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initialize RandomUser object</span>
 
 <span class="sd">        :param get_params: (Optional) Dictionary mapping query parameter names</span>
@@ -252,7 +253,7 @@
 <span class="sd">        :param capitalize: (Default = True) Capitalize first letter if True</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">first_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="s1">&#39;first&#39;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">first_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="k">if</span> <span class="n">capitalize</span> <span class="k">else</span> <span class="n">first_name</span></div>
+        <span class="k">return</span> <span class="n">first_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">capitalize</span> <span class="k">else</span> <span class="n">first_name</span></div>
 
 <div class="viewcode-block" id="RandomUser.get_last_name"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_last_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_last_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capitalize</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns last name</span>
@@ -260,7 +261,7 @@
 <span class="sd">        :param capitalize: (Default = True) Capitalize first letter if True</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">last_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="s1">&#39;last&#39;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">last_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="k">if</span> <span class="n">capitalize</span> <span class="k">else</span> <span class="n">last_name</span></div>
+        <span class="k">return</span> <span class="n">last_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">capitalize</span> <span class="k">else</span> <span class="n">last_name</span></div>
 
 <div class="viewcode-block" id="RandomUser.get_full_name"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_full_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capitalize</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns first and last name separated by a space</span>
@@ -301,14 +302,21 @@
     <span class="c1"># Location</span>
     <span class="c1"># --------------------------------</span>
 
-<div class="viewcode-block" id="RandomUser.get_street"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_street">[docs]</a>    <span class="k">def</span> <span class="nf">get_street</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capitalize</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="RandomUser.get_street"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_street">[docs]</a>    <span class="k">def</span> <span class="nf">get_street</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capitalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">split_number_name</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns street address</span>
 
 <span class="sd">        :param capitalize: (Default = True) Capitalize first letter of words if</span>
 <span class="sd">            True</span>
+<span class="sd">        :param split_number_name: (Default = False) If False, return the full</span>
+<span class="sd">            street address as a string. If True, return a dictionary with keys</span>
+<span class="sd">            &#39;number&#39; and &#39;name&#39; containing the street number and name,</span>
+<span class="sd">            respectively</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">street</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;street&#39;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">street</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="k">if</span> <span class="n">capitalize</span> <span class="k">else</span> <span class="n">street</span></div>
+        <span class="n">number</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;street&#39;</span><span class="p">][</span><span class="s1">&#39;number&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;street&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">capitalize</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">street</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;number&#39;</span><span class="p">:</span> <span class="n">number</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span> <span class="p">}</span> <span class="k">if</span> <span class="n">split_number_name</span> <span class="k">else</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">street</span></div>
 
 <div class="viewcode-block" id="RandomUser.get_city"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_city">[docs]</a>    <span class="k">def</span> <span class="nf">get_city</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capitalize</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns city</span>
@@ -317,7 +325,7 @@
 <span class="sd">            True</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">city</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">city</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="k">if</span> <span class="n">capitalize</span> <span class="k">else</span> <span class="n">city</span></div>
+        <span class="k">return</span> <span class="n">city</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">capitalize</span> <span class="k">else</span> <span class="n">city</span></div>
 
 <div class="viewcode-block" id="RandomUser.get_state"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_state">[docs]</a>    <span class="k">def</span> <span class="nf">get_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capitalize</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns state</span>
@@ -326,7 +334,16 @@
 <span class="sd">            True</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;state&#39;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">state</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="k">if</span> <span class="n">capitalize</span> <span class="k">else</span> <span class="n">state</span></div>
+        <span class="k">return</span> <span class="n">state</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">capitalize</span> <span class="k">else</span> <span class="n">state</span></div>
+
+<div class="viewcode-block" id="RandomUser.get_country"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_country">[docs]</a>    <span class="k">def</span> <span class="nf">get_country</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capitalize</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns country</span>
+
+<span class="sd">        :param capitalize: (Default = True) Capitalize first letter of words if</span>
+<span class="sd">            True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">country</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;country&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">country</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">capitalize</span> <span class="k">else</span> <span class="n">country</span></div>
 
 <div class="viewcode-block" id="RandomUser.get_postcode"><a class="viewcode-back" href="../randomuser.html#randomuser.RandomUser.get_postcode">[docs]</a>    <span class="k">def</span> <span class="nf">get_postcode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns post code&quot;&quot;&quot;</span>
@@ -530,7 +547,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Connor de la Cruz.
+        &copy; Copyright 2018, Connor de la Cruz
 
     </p>
   </div>
@@ -547,38 +564,16 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.5.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/language_data.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
